@@ -2,6 +2,7 @@ import { AuthedUserContext } from '../../App';
 import { useContext, useState } from 'react';
 import './dashboard.css';
 import BookCard from '../BookCard/BookCard';
+import ReviewForm from '../ReviewForm/ReviewForm';
 import axios from 'axios';
 
 const Dashboard = ({}) => {
@@ -37,6 +38,8 @@ const Dashboard = ({}) => {
         <div className="container">
                 {bookData.length > 0 ? <BookCard book={{ items: bookData }} /> : <p>No books found</p>}
             </div>
+
+        <ReviewForm />
 
     </main>
   );
