@@ -10,7 +10,6 @@ const BookCard = ({book}) => {
                 {book.items.map((item) => {
                     const thumbnail = item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
                     return (
-                       
                         <div key={item.id} className="card" onClick={()=>{setShow(true);setItem(item)}}>
                                 <img src={thumbnail} alt="" />
                                 <div className="bottom">

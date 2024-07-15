@@ -23,7 +23,10 @@ const App = () => {
         <NavBar user={user} handleSignout={handleSignout} />
         <Routes>
           {user ? (
+            <>
             <Route path="/" element={<Dashboard user={user} />} />
+            {/* <Route path="/books" element={<BookList books={ books } />} /> */}
+            </>
           ) : (
             <Route path="/" element={<Landing />} />
           )}
