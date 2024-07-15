@@ -3,25 +3,19 @@ import { useContext, useState } from 'react';
 import './dashboard.css';
 import BookCard from '../BookCard/BookCard';
 import axios from 'axios';
-import BookList from '../BookList/BookList';
 
 const Dashboard = ({}) => {
   const user = useContext(AuthedUserContext);
 
   const [bookData, setBookData] = useState([]);
   const [search, setSearch] = useState('');
-
   const searchBook = (event) => {
-    if(event.key==="Enter")
-      {
-        axios.get('https://www.googleapis.com/books/v1/volumes?q='+search+'&key=AIzaSyDegmK3IFVWlUi9SzeHLix2ggWjXzb_FWA ')
-        .then(res=>setBookData(res.data))
-        .catch(error=>console.log(error))
+    if(event.key==="Enter" || event.type === "click") {
+        axios.get('https://www.googleapis.com/books/v1/volumes?q=' + search + '&key=AIzaSyDegmK3IFVWlUi9SzeHLix2ggWjXzb_FWA ')
+        .then(res => setBookData(res.data.items))
+        .catch(error => console.log(error))
       }
   }
-
-  <p>TESTING</p>
-
 
   return (
     <main>
@@ -37,14 +31,12 @@ const Dashboard = ({}) => {
             value={search} onChange={event=>setSearch(event.target.value)}
             onKeyPress={searchBook}
             />
-            <button>search</button>
+            <button onClick={searchBook}>Search</button>
         </div>
 
         <div className="container">
-
-            <BookCard book={bookData} />
-
-        </div>
+                {bookData.length > 0 ? <BookCard book={{ items: bookData }} /> : <p>No books found</p>}
+            </div>
 
     </main>
   );

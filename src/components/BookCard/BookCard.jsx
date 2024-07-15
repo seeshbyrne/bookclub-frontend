@@ -1,19 +1,25 @@
-
+import { useState } from "react";
+import BookDetails from "../BookDetails/BookDetails";
 
 const BookCard = ({book}) => {
-    console.log(book)
+    const [show, setShow] = useState(false);
+    const [bookItem, setItem] = useState();
+
     return (
         <>
-                <section>
-                    <ul>
-                        <div className="card">
-                            <div className="bottom">
-                                <h2>Title: book title here </h2>
-                                <p>Author: </p>  
-                            </div>
-                        </div> 
-                    </ul>
-                </section>  
+                {book.items.map((item) => {
+                    const thumbnail = item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
+                    return (
+                       
+                        <div key={item.id} className="card" onClick={()=>{setShow(true);setItem(item)}}>
+                                <img src={thumbnail} alt="" />
+                                <div className="bottom">
+                                    <h3 className="title">{item.volumeInfo.title}</h3>
+                                </div>
+                        </div>
+                    )
+                })}
+            {show && <BookDetails show={show} item={bookItem} onClose={()=>setShow(false)}/>}
         </>
     );
 };

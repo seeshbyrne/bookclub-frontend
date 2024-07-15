@@ -1,11 +1,11 @@
+import BookCard from "../BookCard/BookCard";
 
-
-const BookList = ({books}) => {
+const BookList = ({ books }) => {
     
     return (
         <div>
             {books.map(book => (
-                <BookCard key={book.name} book={book} />
+                <BookCard key={book.id} book={book} />
             ))}
         </div>
     )
