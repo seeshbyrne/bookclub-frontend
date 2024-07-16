@@ -26,7 +26,6 @@ const BookDetails = () => {
             <Link to="/reviews" state={{ book }}>
                <button>Create a Review</button> 
             </Link>
-            
       </div>
     </div>
   );

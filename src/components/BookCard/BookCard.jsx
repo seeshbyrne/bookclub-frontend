@@ -3,8 +3,8 @@ import BookDetails from "../BookDetails/BookDetails";
 import { Link } from 'react-router-dom';
 
 const BookCard = ({book}) => {
-    const [show, setShow] = useState(false);
-    const [bookItem, setItem] = useState();
+    // const [show, setShow] = useState(false);
+    // const [bookItem, setItem] = useState();
 
     return (
         <>
