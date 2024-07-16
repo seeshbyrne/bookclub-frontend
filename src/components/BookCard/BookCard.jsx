@@ -15,8 +15,6 @@ const BookCard = ({book}) => {
                       return (
                         <Link key={item.id} to={`/books/${item.id}`} state={{ book: item }}>
                             <div className="card">
-                        {/* // <Link key={item.id} to={"/books/" + item.id}>
-                        // <div key={item.id} className="card" onClick={()=>{setShow(true);setItem(item)}}> */}
                                 <img src={thumbnail} alt="book image" />
                                 <div className="bottom">
                                     <h3 className="title">{item.volumeInfo.title}</h3>
@@ -28,7 +26,6 @@ const BookCard = ({book}) => {
                     }
                     return null;
                 })}
-            {/* {show && <BookDetails show={show} item={bookItem} onClose={()=>setShow(false)}/>} */}
         </>
     );
 };
