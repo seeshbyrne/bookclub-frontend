@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import * as profileService from '../../services/profileService';
 import './MembersPage.css';
 
@@ -7,7 +8,9 @@ const MembersPage = () => {
 
     const userListItems = users.map((user) => (
         <li key={user._id} className='userListItem'>
-            <h2>{user.username}</h2>
+            <Link to={"/members/" + user._id}>
+                <h2>{user.username}</h2>
+            </Link>
         </li>
     ))
 
