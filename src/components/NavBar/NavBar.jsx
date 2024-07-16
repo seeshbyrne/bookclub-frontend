@@ -8,18 +8,22 @@ const NavBar = ({ handleSignout }) => {
   return (
     <>
       {user ? (
-        <nav>
-
-            <Link to="/">Home</Link>
-            <Link to="/books">Books</Link>
-            <Link to="/reviews">Reviews</Link>
-            <Link to="/members">Members</Link>
-            <Link to="" onClick={handleSignout}>Sign Out</Link>
-
+        <nav class="bg-gray-100 w-full">
+          <div class="px-4 py-2 border">
+            <div className="nav-links" class="flex justify-between">
+              <div>
+              {/* <Link to="/" class="mr-5">Home</Link> */}
+              <Link to="/books" class="mr-5">Home</Link>
+              <Link to="/reviews" class="mr-5">Reviews</Link>
+              <Link to="/members" class="mr-5">Members</Link>
+              </div>
+              <Link to="" onClick={handleSignout}>Sign Out</Link>
+            </div>
+          </div>
         </nav>
       ) : (
         <nav class="bg-gray-100">
-          <div class="px-4 py-2 mx-auto border">
+          <div class="px-4 py-2 border">
 
               <Link to="/signin">Sign In</Link>
               <Link to="/signup">Sign Up</Link>
