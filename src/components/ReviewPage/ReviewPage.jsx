@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import * as reviewService from '../../services/reviewService';
 import './ReviewPage.css';
 import { AuthedUserContext } from '../../App';
@@ -11,6 +11,14 @@ const ReviewPage = () => {
     const { id } = useParams();
     const userId = id || user._id;
 
+    const navigate = useNavigate();
+
+    const _handleDeleteReview = async (reviewId) => {
+        await reviewService.deleteReview(reviewId);
+        const remainingReviews = reviews.filter((review) => review._id !== reviewId);
+        setReviews(remainingReviews);
+    }
+
     const reviewListItems = reviews.map((review) => (
         <li key={review._id} className='reviewListItem'>
             <h2>{review.bookTitle}</h2>
@@ -18,8 +26,16 @@ const ReviewPage = () => {
             <p>Review by: {review.author.username}</p>
             <p>Rating: {review.rating}</p>
             <p>{review.text}</p>
+            {!id && (
+                <div className="text-white">
+                    <button>Edit</button>
+                    <button onClick={() => _handleDeleteReview(review._id)}>
+                        Delete
+                    </button>
+                </div>
+            )}
         </li>
-    ))
+    ));
 
     useEffect(() => {
         const fetchReviews = async () => {
