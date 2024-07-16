@@ -55,6 +55,23 @@ main {
     /* width: 1000px; */
 }
 
+.trending {
+    display: flex;
+    justify-content: center;
+}
+
+.trending h2 {
+    font-weight: bold;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.display-book img {
+    height: 150px;
+    margin-right: 20px;
+    box-shadow: 10px 4px 6px 10px rgba(0, 0, 0, 0.05);
+}
+
 .search {
     display: flex;
     align-items: center;
