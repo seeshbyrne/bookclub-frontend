@@ -27,8 +27,9 @@ const Dashboard = ({ }) => {
     <main>
       <h1 class="py-5">Welcome, {user.username}</h1>
 
+
       <div className='trending'>
-        <h2>New & Trending</h2>
+        <h2 class="text-6xl flex items-center mb-10">New & Trending</h2>
         <div className='display-book'>
           <img src="http://books.google.com/books/content?id=2HvGDwAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api" alt="book image" />
         </div>
@@ -40,17 +41,17 @@ const Dashboard = ({ }) => {
         </div>
       </div>
 
-      <div class="square-container-test">
-        <div class="trapezium"></div>
-        <div class="bottom-part"></div>
+      <div className="square-container-one">
+        <div className="trapezium-one"></div>
+        <div className="bottom-part-one"></div>
       </div>
 
-      <div class="square-container-test">
-        <div class="trapezium"></div>
-        <div class="bottom-part"></div>
+      <div className="square-container-two">
+        <div className="trapezium-two"></div>
+        <div className="bottom-part-two"></div>
       </div>
 
-      <h2 class="mt-10 mb-10">Find your book</h2>
+      <h2 class="mb-5 custom-font">Find your book</h2>
       <div className="search">
         <input
           type="text"
@@ -59,7 +60,7 @@ const Dashboard = ({ }) => {
           onChange={(event) => setSearch(event.target.value)}
           onKeyPress={searchBook}
         />
-        <button onClick={searchBook}>Search</button>
+        <button onClick={searchBook} class="custom-font">Search</button>
       </div>
 
         <div className="container">

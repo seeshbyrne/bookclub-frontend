@@ -3,6 +3,9 @@ import { AuthedUserContext } from '../../App';
 import { useContext } from 'react';
 import './NavBar.css';
 import { IoMdBook } from "react-icons/io";
+import { TfiCommentAlt } from "react-icons/tfi";
+import { BsPeople } from "react-icons/bs";
+import { PiSignOut } from "react-icons/pi";
 
 const NavBar = ({ handleSignout }) => {
   const user = useContext(AuthedUserContext);
@@ -12,7 +15,7 @@ const NavBar = ({ handleSignout }) => {
       {user ? (
         <nav class="py-3 w-full">
           <div>
-            <div className="nav-links" class="flex justify-between mt-2">
+            <div className="nav-links" class="flex justify-between mt-2 custom-font">
               <div class="flex flex-wrap" >
               <Link to="/" 
                 class="mr-5 flex items-center 
@@ -22,25 +25,25 @@ const NavBar = ({ handleSignout }) => {
                 <IoMdBook style={{ marginRight: '8px' }} />Home
               </Link>
               <Link to="/reviews" 
-                class="mr-5 
+                class="mr-5 flex items-center
                 text-black 
                 bg-orange-50
                 px-4 py-1 rounded-xl">
-                Reviews
+                <TfiCommentAlt style={{ marginRight: '8px' }} />Reviews
               </Link>
               <Link to="/members" 
-                class="mr-5 
+                class="mr-5 flex items-center
                 text-black 
                 bg-orange-50
                 px-4 py-1 rounded-xl">
-                Members
+                <BsPeople style={{ marginRight: '8px' }} />Members
               </Link>
               </div>
               <Link to="" onClick={handleSignout} 
-                class="text-black
+                class="text-black flex items-center
                 bg-orange-50
                 px-4 py-1 rounded-xl">
-                Sign Out
+                <PiSignOut style={{ marginRight: '8px' }} />Sign Out
               </Link>
             </div>
           </div>
