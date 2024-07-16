@@ -14,6 +14,20 @@ const index = async () => {
     }
 };
 
+// get reviews by userId
+const getUserReviews = async (userId) => {
+    try {
+        const response = await fetch(`${BASE_URL}/user/${userId}`, {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('token')
+            }
+        });
+        return response.json();
+    } catch (error) {
+        console.error('Error fetching user reviews:', error);
+    }
+};
+
 // Create a new review
 const create = async (reviewData) => {
     try {
@@ -65,6 +79,7 @@ const deleteReview = async (id) => {
 
 export {
     index,
+    getUserReviews,
     create,
     update,
     deleteReview

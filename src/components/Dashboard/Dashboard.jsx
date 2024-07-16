@@ -3,7 +3,6 @@ import { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './dashboard.css';
 import BookCard from '../BookCard/BookCard';
-import ReviewForm from '../ReviewForm/ReviewForm';
 import axios from 'axios';
 
 const Dashboard = ({ }) => {
@@ -63,11 +62,9 @@ const Dashboard = ({ }) => {
         <button onClick={searchBook}>Search</button>
       </div>
 
-      <div className="container">
-        {<BookCard book={{ items: bookData }} />}
-      </div>
-
-      {/* <ReviewForm /> */}
+        <div className="container">
+                {<BookCard book={{ items: bookData }} />}
+        </div>
     </main>
   );
 };
