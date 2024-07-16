@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Landing from './components/Landing/Landing';
 import Dashboard from './components/Dashboard/Dashboard';
+import BookDetails from './components/BookDetails/BookDetails';
 import SignupForm from './components/SignupForm/SignupForm';
 import SigninForm from './components/SigninForm/SigninForm';
 import * as authService from '../src/services/authService'; // import the authservice
@@ -24,8 +25,8 @@ const App = () => {
         <Routes>
           {user ? (
             <>
-            <Route path="/" element={<Dashboard user={user} />} />
-            {/* <Route path="/books" element={<BookList books={ books } />} /> */}
+            <Route path="/books" element={<Dashboard user={user} />} />
+            <Route path="/books/:bookId" element={<BookDetails />} />
             </>
           ) : (
             <Route path="/" element={<Landing />} />

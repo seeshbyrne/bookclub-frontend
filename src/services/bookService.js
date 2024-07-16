@@ -1,5 +1,6 @@
 const BASE_URL = import.meta.env.VITE_EXPRESS_BACKEND_URL + '/books';
 
+// SHOWING ALL BOOKS
 const index = async () => {
     try {
         const response = await fetch(BASE_URL, {
@@ -13,6 +14,7 @@ const index = async () => {
     }
 };
 
+//SHOWING ONE BOOK
 const show = async (id) => {
     try {
         const response = await fetch(BASE_URL + '/' + id, {
@@ -26,7 +28,8 @@ const show = async (id) => {
     }
 };
 
-const create = async (newBook) => {
+//CREATING NEW REVIEW
+const create = async (newReview) => {
     try {
         const response = await fetch(BASE_URL, {
             method: 'POST',
@@ -34,7 +37,7 @@ const create = async (newBook) => {
                 Authorization: 'Bearer ' + localStorage.getItem('token'),
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(newBook)
+            body: JSON.stringify(newReview)
         });
         return response.json();
     } catch (error) {
@@ -42,6 +45,7 @@ const create = async (newBook) => {
     }
 };
 
+// UPDATING A REVIEW
 const update = async (id, bookFormData) => {
     try {
         const response = await fetch(BASE_URL + '/' + id, {
@@ -58,7 +62,8 @@ const update = async (id, bookFormData) => {
     }
 };
 
-const deleteBook = async (id) => {
+// DELETING A REVIEW
+const deleteReview = async (id) => {
     try {
         const response = await fetch(BASE_URL + '/' + id, {
             method: 'DELETE',
@@ -72,6 +77,7 @@ const deleteBook = async (id) => {
     }
 };
 
+/// CHECK IF WE NEED THIS????
 const createReview = async (bookId, review) => {
     try {
         const response = await fetch(`${BASE_URL}/${ bookId }/reviews`, {
@@ -88,4 +94,4 @@ const createReview = async (bookId, review) => {
     }
 };
 
-export { index, show, create, update, deleteBook, createReview };
+export { index, show, create, update, deleteReview, createReview };
