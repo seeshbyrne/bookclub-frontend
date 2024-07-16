@@ -14,4 +14,21 @@
     transform: rotateX(10deg);
     box-shadow: 10px 4px 6px rgba(0, 0, 0, 0.05);
     width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userLink {
+    display: flex;
+    align-items: center;
+}
+
+.userLink .icon {
+    margin-right: 10px;
+}
+
+.userLink h2 {
+    margin: 0;
+    margin-left: 10px;
 }

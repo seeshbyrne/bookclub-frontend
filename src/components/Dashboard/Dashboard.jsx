@@ -29,7 +29,10 @@ const Dashboard = ({ }) => {
 
 
       <div className='trending'>
-        <h2 class="text-6xl flex items-center mb-10">New & Trending</h2>
+        <h2 class="text-6xl flex items-center mb-10">
+        <span>Best</span>
+        <span>Sellers</span>
+          </h2>
         <div className='display-book'>
           <img src="http://books.google.com/books/content?id=2HvGDwAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api" alt="book image" />
         </div>

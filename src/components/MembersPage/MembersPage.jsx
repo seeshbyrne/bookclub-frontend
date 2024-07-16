@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as profileService from '../../services/profileService';
 import './MembersPage.css';
+import { IoPersonCircleOutline } from "react-icons/io5";
 
 const MembersPage = () => {
     const [users, setUsers] = useState([]);
 
     const userListItems = users.map((user) => (
         <li key={user._id} className='userListItem'>
-            <Link to={"/members/" + user._id}>
-                <h2>{user.username}</h2>
+            <Link to={"/members/" + user._id} className="userLink">
+            <IoPersonCircleOutline className="icon"/><h2>{user.username}</h2>
             </Link>
         </li>
     ))
