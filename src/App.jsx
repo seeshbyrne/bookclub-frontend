@@ -27,7 +27,7 @@ const App = () => {
         <Routes>
           {user ? (
             <>
-            <Route path="/books" element={<Dashboard user={user} />} />
+            <Route path="/" element={<Dashboard user={user} />} />
             <Route path="/books/:bookId" element={<BookDetails />} />
             <Route path="/reviews" element={<ReviewPage />} />
             <Route path="/members" element={<MembersPage />} />

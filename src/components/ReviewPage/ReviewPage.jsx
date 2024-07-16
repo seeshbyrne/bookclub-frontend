@@ -31,7 +31,7 @@ const ReviewPage = () => {
 
     return (
         <div>
-            <h1>Reviews</h1>
+            <h1 class="py-5">Reviews</h1>
             {reviews.length === 0 ? (
                 <p>No reviews found</p>
             ) : (

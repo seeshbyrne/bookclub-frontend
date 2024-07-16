@@ -1,31 +1,27 @@
-import { useState } from "react";
-import BookDetails from "../BookDetails/BookDetails";
 import { Link } from 'react-router-dom';
+import './BookCard.css'
 
-const BookCard = ({book}) => {
-    // const [show, setShow] = useState(false);
-    // const [bookItem, setItem] = useState();
+const BookCard = ({ book }) => {
 
     return (
         <>
-                {book.items.map((item) => {
-                    const thumbnail = item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
-                    if(thumbnail != undefined)
-                    {
-                      return (
+            {book.items.map((item) => {
+                const thumbnail = item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
+                if (thumbnail != undefined) {
+                    return (
                         <Link key={item.id} to={`/books/${item.id}`} state={{ book: item }}>
                             <div className="card">
                                 <img src={thumbnail} alt="book image" />
                                 <div className="bottom">
-                                    <h3 className="title">{item.volumeInfo.title}</h3>
-                                    <h4 className="author">{item.volumeInfo.authors}</h4>
+                                    <h4 className="title">{item.volumeInfo.title}</h4>
+                                    <h5 className="author">{item.volumeInfo.authors}</h5>
                                 </div>
-                        </div>
+                            </div>
                         </Link>
-                    )  
-                    }
-                    return null;
-                })}
+                    )
+                }
+                return null;
+            })}
         </>
     );
 };
