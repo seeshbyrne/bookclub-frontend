@@ -1,0 +1,17 @@
+.userList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.userListItem {
+    list-style: none;
+    background-color: #F8F2EB;
+    border-radius: 25px;
+    margin-bottom: 40px;
+    transform-style: preserve-3d;
+    transform: rotateX(10deg);
+    box-shadow: 10px 4px 6px rgba(0, 0, 0, 0.05);
+    width: 300px;
+}
