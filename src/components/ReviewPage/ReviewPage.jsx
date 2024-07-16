@@ -1,8 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import * as reviewService from '../services/reviewService';
+import * as reviewService from '../../services/reviewService';
+import './ReviewPage.css';
 
 const ReviewPage = () => {
     const [reviews, setReviews] = useState([]);
+
+    const reviewListItems = reviews.map((review) => (
+        <li key={review._id} className='reviewListItem'>
+            <h2>{review.bookTitle}</h2>
+            <p>by {review.bookAuthor}</p>
+            <p>Review by: {review.author.username}</p>
+            <p>Rating: {review.rating}</p>
+            <p>{review.text}</p>
+        </li>
+    ))
 
     useEffect(() => {
         const fetchReviews = async () => {
@@ -24,16 +35,8 @@ const ReviewPage = () => {
             {reviews.length === 0 ? (
                 <p>No reviews found</p>
             ) : (
-                <ul>
-                    {reviews.map((review) => (
-                        <li key={review._id}>
-                            <h2>{review.bookTitle}</h2>
-                            <p>by {review.bookAuthor}</p>
-                            <p>Review by: {review.author.name}</p>
-                            <p>Rating: {review.rating}</p>
-                            <p>{review.text}</p>
-                        </li>
-                    ))}
+                <ul className="reviewList">
+                    {reviewListItems}
                 </ul>
             )}
         </div>

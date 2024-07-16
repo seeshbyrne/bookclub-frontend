@@ -7,6 +7,7 @@ import BookDetails from './components/BookDetails/BookDetails';
 import SignupForm from './components/SignupForm/SignupForm';
 import SigninForm from './components/SigninForm/SigninForm';
 import * as authService from '../src/services/authService'; // import the authservice
+import ReviewPage from './components/ReviewPage/ReviewPage';
 
 export const AuthedUserContext = createContext(null);
 
@@ -27,6 +28,7 @@ const App = () => {
             <>
             <Route path="/books" element={<Dashboard user={user} />} />
             <Route path="/books/:bookId" element={<BookDetails />} />
+            <Route path="/reviews" element={<ReviewPage />} />
             </>
           ) : (
             <Route path="/" element={<Landing />} />
