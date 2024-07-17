@@ -107,6 +107,7 @@ const ReviewPage = () => {
                     {isModalOpen && (
                         <ReviewForm
                             handleAddReview={_handleAddReview}
+                            handleUpdateReview={_handleUpdateReview}
                             setIsModalOpen={setIsModalOpen}
                             selectedReviewId={selectedReviewId}
                         />

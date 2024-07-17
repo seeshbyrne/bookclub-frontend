@@ -39,8 +39,12 @@ const ReviewForm = (props) => {
     const _handleSubmit = async (event) => {
         event.preventDefault();
         console.log(formData);
-        props.handleAddReview(formData);
-        closeModal(); // Close the modal after submission
+        if (id) {
+            props.handleUpdateReview(formData);
+        } else {
+            props.handleAddReview(formData);
+        }
+        props.setIsModalOpen(false);
     };
 
     return (
@@ -62,7 +66,7 @@ const ReviewForm = (props) => {
                                     <div className="sm:flex sm:items-start">
                                         <div className="mt-3 text-center sm:mt-0 sm:text-center">
                                             <h3 className="text-base font-semibold leading-7 text-gray-900" id="modal-title">
-                                                Create a review
+                                                {props.selectedReviewId ? 'Edit review' : 'Create a review'}
                                             </h3>
                                         </div>
                                     </div>
@@ -168,7 +172,7 @@ const ReviewForm = (props) => {
                                                 type="submit"
                                                 className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 sm:ml-3 sm:w-auto"
                                             >
-                                                Submit Review
+                                                {props.selectedReviewId ? 'Update Review' : 'Submit Review'}
                                             </button>
                                             <button
                                                 type="button"
