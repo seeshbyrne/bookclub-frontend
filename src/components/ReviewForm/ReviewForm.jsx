@@ -36,7 +36,7 @@ const ReviewForm = (props) => {
         <>
           <button
             onClick={() => setIsOpen(true)}
-            className="bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none"
+            className=" bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none"
           >
             Create a Review
           </button>

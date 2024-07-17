@@ -47,4 +47,10 @@
 .starRating {
     display: flex;
     flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.review-book-title {
+    font-weight: 500;
+    font-size: 25px;
 }

@@ -14,18 +14,18 @@ const BookDetails = () => {
 
   return (
     <div className="details">
-      <button className="close" onClick={() => window.history.back()}>back<i className="fas fa-times"></i></button>
-      <img src={thumbnail} alt="book image" />
+      {/* <button className="close" onClick={() => window.history.back()}>back<i className="fas fa-times"></i></button> */}
+      <img src={thumbnail} alt="book image" className="book-detail-img mt-2"/>
       <div className="book-info">
-        <h1>{book.volumeInfo.title}</h1>
-        <h3>{book.volumeInfo.authors.join(', ')}</h3>
-        <h4>{book.volumeInfo.publisher}<span>{book.volumeInfo.publishedDate}</span></h4><br />
-        <h4 className="description">{book.volumeInfo.description}</h4>
-        <a href={book.volumeInfo.previewLink} target="_blank" rel="noopener noreferrer">
-          <button>More</button>
+        <h1 className="text-center mb-7">{book.volumeInfo.title}</h1>
+        <h3 className="text-center">{book.volumeInfo.authors.join(', ')}</h3>
+        <h4 className="text-center">{book.volumeInfo.publisher}<span>{book.volumeInfo.publishedDate}</span></h4><br />
+        <h4 className="description text-justify">{book.volumeInfo.description}</h4>
+        <a href={book.volumeInfo.previewLink} target="_blank" rel="noopener noreferrer" className="more-button">
+          <button className="more-button">More</button>
         </a>
-        <Link to="/reviews" state={{ book }}>
-          <button>Create a Review</button>
+        <Link to="/reviews" state={{ book }} className="review-button">
+          <button className="review-button">Create a Review</button>
         </Link>
       </div>
     </div>

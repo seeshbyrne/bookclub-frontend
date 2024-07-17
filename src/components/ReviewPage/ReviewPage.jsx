@@ -32,9 +32,10 @@ const ReviewPage = () => {
             <div className="reviewHeader">
                 <div className="profile-img">{review.author.username.charAt(0).toUpperCase()}</div>
                 <p>{review.author.username}</p>
-                <p className="py-3">by {review.bookAuthor}</p>
-                <h2>{review.bookTitle}</h2>
             </div>
+
+            <h2 className="review-book-title">{review.bookTitle}</h2>
+            <p className="review-book-author py-3">by {review.bookAuthor}</p>
 
             <div className="starRating mb-3">
                 {[...Array(5)].map((star, index) => {
@@ -80,7 +81,7 @@ const ReviewPage = () => {
         <div>
             <h1 className="py-5 pt-10">Reviews</h1>
             {reviews.length === 0 ? (
-                <p>No reviews found</p>
+                <p className="text-center">No reviews yet</p>
             ) : (
                 <div>
                     <ul className="reviewList">
