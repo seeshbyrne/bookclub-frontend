@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaStar } from 'react-icons/fa';
 import './ReviewForm.css';
+import * as reviewService from '../../services/reviewService';
 
 const ReviewForm = (props) => {
     const initialState = {
@@ -14,8 +15,18 @@ const ReviewForm = (props) => {
     const [rating, setRating] = useState(null);
     const [hover, setHover] = useState(null);
     const [formData, setFormData] = useState(initialState);
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
 
+    const id = props.selectedReviewId;
+
+    useEffect(() => {
+        const fetchReview = async () => {
+            const reviewData = await reviewService.show(id);
+            setFormData(reviewData);
+        };
+        if (id) fetchReview();
+    }, [id]);
+    
     const closeModal = () => {
         setIsOpen(false);
         setFormData(initialState);
@@ -28,19 +39,22 @@ const ReviewForm = (props) => {
     const _handleSubmit = async (event) => {
         event.preventDefault();
         console.log(formData);
-        props.handleAddReview(formData);
-        closeModal(); // Close the modal after submission
+        if (id) {
+            props.handleUpdateReview(formData);
+        } else {
+            props.handleAddReview(formData);
+        }
+        props.setIsModalOpen(false);
     };
 
     return (
         <>
-            // Modal trigger button
-            <button
+            {/* <button
                 onClick={() => setIsOpen(true)}
                 className="bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none"
             >
                 Create a Review
-            </button>
+            </button> */}
 
             {isOpen && (
                 <div className="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
@@ -52,7 +66,7 @@ const ReviewForm = (props) => {
                                     <div className="sm:flex sm:items-start">
                                         <div className="mt-3 text-center sm:mt-0 sm:text-center">
                                             <h3 className="text-base font-semibold leading-7 text-gray-900" id="modal-title">
-                                                Create a review
+                                                {props.selectedReviewId ? 'Edit review' : 'Create a review'}
                                             </h3>
                                         </div>
                                     </div>
@@ -158,11 +172,11 @@ const ReviewForm = (props) => {
                                                 type="submit"
                                                 className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 sm:ml-3 sm:w-auto"
                                             >
-                                                Submit Review
+                                                {props.selectedReviewId ? 'Update Review' : 'Submit Review'}
                                             </button>
                                             <button
                                                 type="button"
-                                                onClick={() => closeModal()}
+                                                onClick={() => props.setIsModalOpen(false)}
                                                 className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
                                             >
                                                 Cancel

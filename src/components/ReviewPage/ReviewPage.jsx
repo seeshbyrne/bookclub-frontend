@@ -8,6 +8,8 @@ import { FaStar } from 'react-icons/fa';
 
 const ReviewPage = () => {
     const [reviews, setReviews] = useState([]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedReviewId, setSelectedReviewId] = useState(null);
 
     const user = useContext(AuthedUserContext);
     const { id } = useParams();
@@ -37,6 +39,11 @@ const ReviewPage = () => {
         setReviews(remainingReviews);
     }
 
+    const _handleEditClick = async (reviewId) => {
+        setIsModalOpen(true);
+        setSelectedReviewId(reviewId);
+    }
+
     const reviewListItems = reviews.map((review) => (
         <li key={review._id} className='reviewListItem'>
             <div className="reviewHeader">
@@ -63,7 +70,7 @@ const ReviewPage = () => {
             <p>{review.text}</p>
             {!id && (
                 <div className="text-white">
-                    <button>Edit</button>
+                    <button onClick={() => _handleEditClick(review._id)}>Edit</button>
                     <button onClick={() => _handleDeleteReview(review._id)}>
                         Delete
                     </button>
@@ -97,7 +104,14 @@ const ReviewPage = () => {
                     <ul className="reviewList">
                         {reviewListItems}
                     </ul>
-                    <ReviewForm handleAddReview={_handleAddReview}/>
+                    {isModalOpen && (
+                        <ReviewForm
+                            handleAddReview={_handleAddReview}
+                            handleUpdateReview={_handleUpdateReview}
+                            setIsModalOpen={setIsModalOpen}
+                            selectedReviewId={selectedReviewId}
+                        />
+                    )}
                 </div>
             )}
         </div>
