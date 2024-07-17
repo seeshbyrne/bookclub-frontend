@@ -30,23 +30,41 @@ const Dashboard = ({ }) => {
 
       <div className='trending'>
         <h2 class="text-6xl flex items-center mb-10">
-        <span>Best</span>
-        <span>Sellers</span>
-          </h2>
+          <span>Best</span>
+          <span>Sellers</span>
+        </h2>
         <div className='display-book'>
-          <img src="http://books.google.com/books/content?id=2HvGDwAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api" alt="book image" />
+          <img src="http://books.google.com/books/content?id=fxcjEAAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api" alt="book image" />
         </div>
         <div className='display-book'>
           <img src="http://books.google.com/books/content?id=sTKxDAAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api" alt="book image" />
         </div>
         <div className='display-book'>
-          <img src="http://books.google.com/books/content?id=oeVM6FQFpdoC&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api" alt="book image" />
+          <img src="http://books.google.com/books/content?id=wmnuDwAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api" alt="book image" />
         </div>
       </div>
 
       <div className="square-container-one">
         <div className="trapezium-one"></div>
         <div className="bottom-part-one"></div>
+      </div>
+
+      <div className='second-shelf'>
+        <div className='display-book'>
+          <img src="http://books.google.com/books/content?id=4xsDEQAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api" alt="book image" />
+        </div>
+        <div className='display-book'>
+          <img src="http://books.google.com/books/content?id=SSJxEAAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api" alt="book image" />
+        </div>
+        <div className='display-book'>
+          <img src="http://books.google.com/books/content?id=fFCjDQAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api" alt="book image" />
+        </div>
+        <div className='display-book'>
+          <img src="http://books.google.com/books/content?id=c2kjzwEACAAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;source=gbs_api" alt="book image" />
+        </div>
+        <div className='display-book'>
+          <img src="http://books.google.com/books/content?id=uW_8EAAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api" alt="book image" />
+        </div>
       </div>
 
       <div className="square-container-two">
@@ -66,9 +84,9 @@ const Dashboard = ({ }) => {
         <button onClick={searchBook} class="custom-font">Search</button>
       </div>
 
-        <div className="container">
-                {<BookCard book={{ items: bookData }} />}
-        </div>
+      <div className="container">
+        {<BookCard book={{ items: bookData }} />}
+      </div>
     </main>
   );
 };

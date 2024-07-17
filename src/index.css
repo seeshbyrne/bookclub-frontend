@@ -9,12 +9,11 @@ a {
 }
 a:hover {
   transition: 0.5s;
-  box-shadow: 10px 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 body {
-  /* margin: 0; */
-  /* display: flex; */
+  margin: 0;
+  display: flex;
   /* place-items: center; */
   min-width: 320px;
   min-height: 100vh;

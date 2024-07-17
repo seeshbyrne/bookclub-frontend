@@ -10,7 +10,8 @@ const MembersPage = () => {
     const userListItems = users.map((user) => (
         <li key={user._id} className='userListItem'>
             <Link to={"/members/" + user._id} className="userLink">
-            <IoPersonCircleOutline className="icon"/><h2>{user.username}</h2>
+            <div className="profile-img">{user.username.charAt(0).toUpperCase()}</div>
+            <h2>{user.username}</h2>
             </Link>
         </li>
     ))

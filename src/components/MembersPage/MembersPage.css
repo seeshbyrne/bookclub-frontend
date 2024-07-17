@@ -1,8 +1,7 @@
 .userList {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
 }
 
 .userListItem {
@@ -10,12 +9,15 @@
     background-color: #F8F2EB;
     border-radius: 25px;
     margin-bottom: 40px;
+    margin-top: 50px;
     transform-style: preserve-3d;
     transform: rotateX(10deg);
     box-shadow: 10px 4px 6px rgba(0, 0, 0, 0.05);
-    width: 300px;
+    width: 200px;
+    height: 75px;
     display: flex;
     justify-content: center;
+    justify-self: center;
     align-items: center;
 }
 
@@ -31,4 +33,18 @@
 .userLink h2 {
     margin: 0;
     margin-left: 10px;
+}
+
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #d2e2cb;
+    font-size: 30px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
