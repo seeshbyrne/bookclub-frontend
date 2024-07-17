@@ -14,6 +14,20 @@ const index = async () => {
     }
 };
 
+// Show
+const show = async (id) => {
+    try {
+        const response = await fetch(BASE_URL + '/' + id, {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('token')
+            }
+        });
+        return response.json();
+    } catch (error) {
+        console.error(error)
+    }
+};
+
 // get reviews by userId
 const getUserReviews = async (userId) => {
     try {
@@ -79,6 +93,7 @@ const deleteReview = async (id) => {
 
 export {
     index,
+    show,
     getUserReviews,
     create,
     update,
