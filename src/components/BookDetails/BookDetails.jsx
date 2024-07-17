@@ -1,16 +1,25 @@
-import { useLocation } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import './BookDetails.css'
+import ReviewForm from '../ReviewForm/ReviewForm';
+import * as reviewService from '../../services/reviewService';
 
 const BookDetails = () => {
   const location = useLocation();
   const { book } = location.state || {};
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   if (!book) {
     return <div>No book details available</div>;
   }
 
   const thumbnail = book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail;
+
+  const _handleAddReview = async (reviewFormData) => {
+    await reviewService.create(reviewFormData);
+    navigate('/reviews')
+  }
 
   return (
     <div className="details">
@@ -24,9 +33,7 @@ const BookDetails = () => {
         <a href={book.volumeInfo.previewLink} target="_blank" rel="noopener noreferrer" className="more-button">
           <button className="more-button">More</button>
         </a>
-        <Link to="/reviews" state={{ book }} className="review-button">
-          <button className="review-button">Create a Review</button>
-        </Link>
+        <ReviewForm setIsModalOpen={setIsModalOpen} handleAddReview={_handleAddReview}/>
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ const ReviewForm = (props) => {
     const [rating, setRating] = useState(null);
     const [hover, setHover] = useState(null);
     const [formData, setFormData] = useState(initialState);
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
 
     const id = props.selectedReviewId;
 
@@ -29,6 +29,7 @@ const ReviewForm = (props) => {
     
     const closeModal = () => {
         setIsOpen(false);
+        props.setIsModalOpen(false);
         setFormData(initialState);
     }
 
@@ -49,12 +50,14 @@ const ReviewForm = (props) => {
 
     return (
         <>
-            {/* <button
+            {props.selectedReviewId ? null : (
+                <button
                 onClick={() => setIsOpen(true)}
                 className="bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none"
-            >
-                Create a Review
-            </button> */}
+                >
+                    Create a Review
+                </button>   
+            )}
 
             {isOpen && (
                 <div className="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
@@ -176,7 +179,7 @@ const ReviewForm = (props) => {
                                             </button>
                                             <button
                                                 type="button"
-                                                onClick={() => props.setIsModalOpen(false)}
+                                                onClick={() => closeModal()}
                                                 className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
                                             >
                                                 Cancel
