@@ -34,45 +34,6 @@ const ReviewForm = (props) => {
 
     return (
         <>
-          <button
-            onClick={() => setIsOpen(true)}
-            className=" bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none"
-          >
-            Create a Review
-          </button>
-    
-          {isOpen && (
-            <div className="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-              <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-              <div className="fixed inset-0 z-10 overflow-y-auto">
-                <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-                  <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                    <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                      <div className="sm:flex sm:items-start">
-                        <div className="mt-3 text-center sm:mt-0 sm:text-center">
-                          <h3 className="text-base font-semibold leading-7 text-gray-900" id="modal-title">
-                            Create a review
-                          </h3>
-                        </div>
-                      </div>
-    
-                      <form onSubmit={_handleSubmit} className="space-y-6">
-                        <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                          <div className="sm:col-span-4">
-                            <label htmlFor="bookId" className="block text-sm font-medium leading-6 text-gray-900">
-                              Book ID
-                            </label>
-                            <div className="mt-2">
-                              <input
-                                type="text"
-                                name="bookId"
-                                id="bookId"
-                                value={formData.bookId}
-                                onChange={_handleChange}
-                                required
-                                className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                              />
-=======
             // Modal trigger button
             <button
                 onClick={() => setIsOpen(true)}
@@ -209,14 +170,13 @@ const ReviewForm = (props) => {
                                         </div>
                                     </form>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
             )}
         </>
-    );
+      );
 };
 
 export default ReviewForm;
