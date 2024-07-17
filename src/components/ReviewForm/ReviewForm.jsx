@@ -34,7 +34,6 @@ const ReviewForm = (props) => {
 
     return (
         <>
-<<<<<<< HEAD
           <button
             onClick={() => setIsOpen(true)}
             className=" bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none"
@@ -210,7 +209,7 @@ const ReviewForm = (props) => {
                                         </div>
                                     </form>
                                 </div>
->>>>>>> 14516978c3781a92049df7180c4e5a171ebfa8f3
+
                             </div>
                         </div>
                     </div>
