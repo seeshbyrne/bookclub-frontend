@@ -18,21 +18,27 @@ const NavBar = ({ handleSignout }) => {
             <div className="nav-links" class="flex justify-between mt-2 custom-font">
               <div class="flex flex-wrap" >
               <Link to="/" 
-                class="mr-5 flex items-center 
+                class="mr-5 
+                flex 
+                items-center 
                 text-black 
                 bg-orange-50
                 px-4 py-1 rounded-xl">
                 <IoMdBook style={{ marginRight: '8px' }} />Home
               </Link>
               <Link to="/reviews" 
-                class="mr-5 flex items-center
+                class="mr-5 
+                flex 
+                items-center
                 text-black 
                 bg-orange-50
                 px-4 py-1 rounded-xl">
                 <TfiCommentAlt style={{ marginRight: '8px' }} />Reviews
               </Link>
               <Link to="/members" 
-                class="mr-5 flex items-center
+                class="mr-5 
+                flex 
+                items-center
                 text-black 
                 bg-orange-50
                 px-4 py-1 rounded-xl">
@@ -40,7 +46,9 @@ const NavBar = ({ handleSignout }) => {
               </Link>
               </div>
               <Link to="" onClick={handleSignout} 
-                class="text-black flex items-center
+                class="text-black 
+                flex 
+                items-center
                 bg-orange-50
                 px-4 py-1 rounded-xl">
                 <PiSignOut style={{ marginRight: '8px' }} />Sign Out
