@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import ReviewForm from '../ReviewForm/ReviewForm';
 import * as reviewService from '../../services/reviewService';
 import './ReviewPage.css';
 import { AuthedUserContext } from '../../App';
@@ -12,6 +13,12 @@ const ReviewPage = () => {
     const userId = id || user._id;
 
     const navigate = useNavigate();
+
+    const _handleAddReview = async (reviewFormData) => {
+        const newReview = await reviewService.create(reviewFormData);
+        setReviews([...reviews, newReview]);
+        navigate('/reviews');
+    }
 
     const _handleDeleteReview = async (reviewId) => {
         await reviewService.deleteReview(reviewId);
@@ -58,9 +65,12 @@ const ReviewPage = () => {
             {reviews.length === 0 ? (
                 <p>No reviews found</p>
             ) : (
-                <ul className="reviewList">
-                    {reviewListItems}
-                </ul>
+                <div>
+                    <ul className="reviewList">
+                        {reviewListItems}
+                    </ul>
+                    <ReviewForm handleAddReview={_handleAddReview}/>
+                </div>
             )}
         </div>
     );
