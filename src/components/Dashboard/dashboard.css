@@ -42,11 +42,7 @@ body {
     position: relative;
     transform-style: preserve-3d;
     transform: rotateX(10deg);
-    box-shadow: 10px 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-.square-container-one {
-    margin-bottom: 150px;
+    box-shadow: 10px 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 .square-container-two {
@@ -55,7 +51,7 @@ body {
 
 /* BOOK SHELF >>>>>>>>>>>>>>>>>>>>>>>>>> */
 
-h1, p, h2 {
+h1, h2 {
     display: flex;
     justify-content: center;
 }
@@ -67,7 +63,18 @@ main {
     transform-style: preserve-3d;
     transform: rotateX(10deg);
     box-shadow: 10px 4px 6px rgba(0, 0, 0, 0.05);
+}
 
+h1 {
+    font-family: "Lora", serif;
+}
+
+.second-shelf {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 60px;
 }
 
 .trending {
@@ -96,8 +103,7 @@ main {
     height: 170px;
     margin: 0 10px;
     margin-top: 10px;
-    box-shadow: 10px 4px 6px 10px rgba(0, 0, 0, 0.05);
-    
+    box-shadow: 6px -3px 6px 1px rgba(0, 0, 0, 0.6);
 }
 
 .search {
@@ -149,7 +155,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* position: relative; */
+    position: relative;
 }
 
 .card img {
@@ -157,6 +163,12 @@ main {
     height: 220px;
     border-radius: 5px;
     box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5);
+}
+
+.card img:hover {
+    transition: .7s;
+    box-shadow: 10px 2px 6px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
 }
 
 .card .bottom {

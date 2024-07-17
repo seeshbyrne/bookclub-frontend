@@ -4,6 +4,7 @@ import ReviewForm from '../ReviewForm/ReviewForm';
 import * as reviewService from '../../services/reviewService';
 import './ReviewPage.css';
 import { AuthedUserContext } from '../../App';
+import { FaStar } from 'react-icons/fa';
 
 const ReviewPage = () => {
     const [reviews, setReviews] = useState([]);
@@ -38,10 +39,26 @@ const ReviewPage = () => {
 
     const reviewListItems = reviews.map((review) => (
         <li key={review._id} className='reviewListItem'>
-            <h2>{review.bookTitle}</h2>
-            <p>by {review.bookAuthor}</p>
-            <p>Review by: {review.author.username}</p>
-            <p>Rating: {review.rating}</p>
+            <div className="reviewHeader">
+                <div className="profile-img">{review.author.username.charAt(0).toUpperCase()}</div>
+                <p>{review.author.username}</p>
+                <p className="py-3">by {review.bookAuthor}</p>
+                <h2>{review.bookTitle}</h2>
+            </div>
+
+            <div className="starRating mb-3">
+                {[...Array(5)].map((star, index) => {
+                    const currentRating = index + 1;
+                    return (
+                        <FaStar
+                            key={index}
+                            size={15}
+                            color={currentRating <= review.rating ? "#ffc107" : "#e4e5e9"}
+                        />
+                    );
+                })}
+            </div>
+                
             <p>{review.text}</p>
             {!id && (
                 <div className="text-white">
@@ -71,7 +88,7 @@ const ReviewPage = () => {
 
     return (
         <div>
-            <h1 class="py-5">Reviews</h1>
+            <h1 className="py-5 pt-10">Reviews</h1>
             {reviews.length === 0 ? (
                 <p>No reviews found</p>
             ) : (
