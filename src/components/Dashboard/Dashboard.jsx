@@ -25,11 +25,11 @@ const Dashboard = ({ }) => {
 
   return (
     <main>
-      <h1 class="py-5">Welcome, {user.username}</h1>
+      <h1 className="py-5 pt-10">Welcome, {user.username}</h1>
 
 
       <div className='trending'>
-        <h2 class="text-6xl flex items-center mb-10">
+        <h2 className="text-6xl flex items-center mb-10">
           <span>Best</span>
           <span>Sellers</span>
         </h2>
@@ -72,7 +72,7 @@ const Dashboard = ({ }) => {
         <div className="bottom-part-two"></div>
       </div>
 
-      <h2 class="mb-5 custom-font">Find your book</h2>
+      <h2 className="mb-5 custom-font">Find your book</h2>
       <div className="search">
         <input
           type="text"
@@ -81,7 +81,7 @@ const Dashboard = ({ }) => {
           onChange={(event) => setSearch(event.target.value)}
           onKeyPress={searchBook}
         />
-        <button onClick={searchBook} class="custom-font">Search</button>
+        <button onClick={searchBook} className="custom-font">Search</button>
       </div>
 
       <div className="container">

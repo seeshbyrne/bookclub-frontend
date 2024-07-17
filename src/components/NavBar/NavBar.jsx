@@ -13,12 +13,12 @@ const NavBar = ({ handleSignout }) => {
   return (
     <>
       {user ? (
-        <nav class="py-3 w-full">
+        <nav className="py-3 w-full">
           <div>
-            <div className="nav-links" class="flex justify-between mt-2 custom-font">
-              <div class="flex flex-wrap" >
+            <div className="nav-links flex justify-between mt-2 custom-font">
+              <div className="flex flex-wrap" >
               <Link to="/" 
-                class="mr-5 
+                className="mr-5 
                 flex 
                 items-center 
                 text-black 
@@ -27,7 +27,7 @@ const NavBar = ({ handleSignout }) => {
                 <IoMdBook style={{ marginRight: '8px' }} />Home
               </Link>
               <Link to="/reviews" 
-                class="mr-5 
+                className="mr-5 
                 flex 
                 items-center
                 text-black 
@@ -36,7 +36,7 @@ const NavBar = ({ handleSignout }) => {
                 <TfiCommentAlt style={{ marginRight: '8px' }} />Reviews
               </Link>
               <Link to="/members" 
-                class="mr-5 
+                className="mr-5 
                 flex 
                 items-center
                 text-black 
@@ -46,7 +46,7 @@ const NavBar = ({ handleSignout }) => {
               </Link>
               </div>
               <Link to="" onClick={handleSignout} 
-                class="text-black 
+                className="text-black 
                 flex 
                 items-center
                 bg-orange-50
@@ -60,8 +60,8 @@ const NavBar = ({ handleSignout }) => {
         <nav>
           <div>
 
-              <Link to="/signin" class="text-black">Sign In</Link>
-              <Link to="/signup" class="text-black">Sign Up</Link>
+              <Link to="/signin" className="text-black">Sign In</Link>
+              <Link to="/signup" className="text-black">Sign Up</Link>
 
           </div>
         </nav>

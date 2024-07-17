@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as profileService from '../../services/profileService';
 import './MembersPage.css';
-import { IoPersonCircleOutline } from "react-icons/io5";
 
 const MembersPage = () => {
     const [users, setUsers] = useState([]);
@@ -32,7 +31,7 @@ const MembersPage = () => {
 
     return (
         <div>
-            <h1>Members</h1>
+            <h1 className="pt-10">Members</h1>
             {users.length === 0 ? (
                 <p>No users found</p>
             ) : (

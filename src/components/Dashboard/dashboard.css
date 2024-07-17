@@ -51,7 +51,7 @@ body {
 
 /* BOOK SHELF >>>>>>>>>>>>>>>>>>>>>>>>>> */
 
-h1, p, h2 {
+h1, h2 {
     display: flex;
     justify-content: center;
 }
