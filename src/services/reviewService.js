@@ -91,11 +91,28 @@ const deleteReview = async (id) => {
     }
 };
 
+const createComment = async (reviewId, comment) => {
+    try {
+        const response = await fetch(`${BASE_URL}/${ reviewId }/comments`, {
+            method: 'POST',
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('token'),
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(comment)
+        });
+        return response.json();
+    } catch (error) {
+        console.error(error);
+    }
+};
+
 export {
     index,
     show,
     getUserReviews,
     create,
     update,
-    deleteReview
+    deleteReview,
+    createComment
 };

@@ -12,6 +12,8 @@ import MembersPage from './components/MembersPage/MembersPage';
 
 export const AuthedUserContext = createContext(null);
 
+// do we need to add the other services here??
+
 const App = () => {
   const [user, setUser] = useState(authService.getUser()); // using the method from authservice
 
