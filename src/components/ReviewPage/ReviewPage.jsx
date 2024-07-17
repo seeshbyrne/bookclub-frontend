@@ -32,12 +32,22 @@ const ReviewPage = () => {
             <div className="reviewHeader">
                 <div className="profile-img">{review.author.username.charAt(0).toUpperCase()}</div>
                 <p>{review.author.username}</p>
+                <p className="py-3">by {review.bookAuthor}</p>
+                <h2>{review.bookTitle}</h2>
             </div>
-            <h2>{review.bookTitle}</h2>
-            <p className="py-3">by {review.bookAuthor}</p>
-            <p className="rating mb-3">Rating: {review.rating}</p>
 
-            
+            <div className="starRating mb-3">
+                {[...Array(5)].map((star, index) => {
+                    const currentRating = index + 1;
+                    return (
+                        <FaStar
+                            key={index}
+                            size={15}
+                            color={currentRating <= review.rating ? "#ffc107" : "#e4e5e9"}
+                        />
+                    );
+                })}
+            </div>
                 
             <p>{review.text}</p>
             {!id && (
