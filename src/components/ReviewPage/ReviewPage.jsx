@@ -21,6 +21,16 @@ const ReviewPage = () => {
         navigate('/reviews');
     }
 
+    const _handleUpdateReview = async (reviewFormData) => {
+        const updatedReview = await reviewService.update(reviewFormData._id, reviewFormData);
+        const updatedReviewIndex = reviews.findIndex((review) => review._id === reviewFormData._id);
+
+        const updatedReviews = [...reviews];
+        updatedReviews[updatedReviewIndex] = updatedReview;
+        setReviews(updatedReviews);
+        navigate('/reviews');
+    }
+
     const _handleDeleteReview = async (reviewId) => {
         await reviewService.deleteReview(reviewId);
         const remainingReviews = reviews.filter((review) => review._id !== reviewId);
