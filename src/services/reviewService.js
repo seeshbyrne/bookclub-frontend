@@ -91,6 +91,7 @@ const deleteReview = async (id) => {
     }
 };
 
+// ORIGINAL Create a new Comment
 const createComment = async (reviewId, comment) => {
     try {
         const response = await fetch(`${BASE_URL}/${ reviewId }/comments`, {
@@ -107,6 +108,62 @@ const createComment = async (reviewId, comment) => {
     }
 };
 
+
+/////UPDATED CREATE COMMENT
+// const createComment = async (reviewId, comment) => {
+//     try {
+//         const response = await fetch(`${BASE_URL}/${reviewId}/comments`, {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 Authorization: 'Bearer ' + localStorage.getItem('token')
+//             },
+//             body: JSON.stringify(comment)
+//         });
+//         return response.json();
+//     } catch (error) {
+//         console.error('Error fetching user reviews:', error);
+//     }
+// };
+
+
+
+//UPDATE COMMENT
+const updateComment = async (reviewId, commentId, commentFormData) => {
+    try {
+        const response = await fetch(`${BASE_URL}/${reviewId}/comments/${commentId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + localStorage.getItem('token'),
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(commentFormData)
+        });
+        return response.json();
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+
+
+// DELETE COMMENT
+const deleteComment = async (reviewId, commentId) => {
+    try {
+        const response = await fetch(`${BASE_URL}/${reviewId}/comments/${commentId}`, {
+            method: 'DELETE',
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('token')
+            }
+        });
+        return response.json();
+    } catch (error) {
+        console.error('Error deleting comment:', error);
+    }
+};
+
+
 export {
     index,
     show,
@@ -114,5 +171,7 @@ export {
     create,
     update,
     deleteReview,
-    createComment
+    createComment,
+    updateComment,
+    deleteComment
 };

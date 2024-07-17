@@ -12,6 +12,9 @@ const ReviewPage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedReviewId, setSelectedReviewId] = useState(null);
 
+
+    const [editingComment, setEditingComment] = useState(null); /////////////////////
+
     const user = useContext(AuthedUserContext);
     const { id } = useParams();
     const userId = id || user._id;
@@ -47,29 +50,75 @@ const ReviewPage = () => {
 
     useEffect(() => {
         const fetchReviews = async () => {
-          try {
-            const reviewsData = await reviewService.getUserReviews(userId);
-            setReviews(reviewsData);
-          } catch (err) {
-            setError('Failed to fetch reviews');
-            console.error(err);
-          }
+            try {
+                const reviewsData = await reviewService.getUserReviews(userId);
+                setReviews(reviewsData);
+            } catch (err) {
+                setError('Failed to fetch reviews');
+                console.error(err);
+            }
         };
-      
+
         fetchReviews();
-      }, [userId]);
+    }, [userId]);
 
     const handleAddComment = async (commentFormData, reviewId) => {
         try {
-          const newComment = await reviewService.createComment(reviewId, commentFormData);
-          const updatedReviews = reviews.map((review) =>
-            review._id === reviewId ? { ...review, comments: [...review.comments, newComment] } : review
-          );
-          setReviews(updatedReviews);
+            const newComment = await reviewService.createComment(reviewId, commentFormData);
+            const updatedReviews = reviews.map((review) =>
+                review._id === reviewId ? { ...review, comments: [...review.comments, newComment] } : review
+            );
+            setReviews(updatedReviews);
         } catch (error) {
-          console.error('Error adding comment:', error);
+            console.error('Error adding comment:', error);
         }
-      };
+    };
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    const handleEditComment = async (commentId, updatedCommentData) => {
+        try {
+            const updatedComment = await reviewService.updateComment(selectedReviewId, commentId, updatedCommentData);
+            const updatedReviews = reviews.map((review) => {
+                if (review._id === selectedReviewId) {
+                    return {
+                        ...review,
+                        comments: review.comments.map((comment) =>
+                            comment._id === commentId ? updatedComment : comment
+                        )
+                    };
+                }
+                return review;
+            });
+            setReviews(updatedReviews);
+            setEditingComment(null);
+        } catch (error) {
+            console.error('Error editing comment:', error);
+        }
+    };
+
+
+    const handleDeleteComment = async (commentId) => {
+        try {
+            await reviewService.deleteComment(selectedReviewId, commentId);
+            const updatedReviews = reviews.map((review) => {
+                if (review._id === selectedReviewId) {
+                    return {
+                        ...review,
+                        comments: review.comments.filter((comment) => comment._id !== commentId)
+                    };
+                }
+                return review;
+            });
+            setReviews(updatedReviews);
+        } catch (error) {
+            console.error('Error deleting comment:', error);
+        }
+    };
+
+    //////////////////////////////////////////////////////////////////////
+
 
     const reviewListItems = reviews.map((review) => (
         <li key={review._id} className='reviewListItem'>
@@ -79,8 +128,7 @@ const ReviewPage = () => {
             </div>
 
             <h2 className="review-book-title">{review.bookTitle}</h2>
-            <p className="review-book-author py-3">by {review.bookAuthor}</p>
-
+            <p className="review-book-author py-3"> {review.bookAuthor}</p>
             <div className="starRating mb-3">
                 {[...Array(5)].map((star, index) => {
                     const currentRating = index + 1;
@@ -93,7 +141,7 @@ const ReviewPage = () => {
                     );
                 })}
             </div>
-                
+
             <p>{review.text}</p>
             {!id && (
                 <div className="text-white">
@@ -103,23 +151,30 @@ const ReviewPage = () => {
                     </button>
                 </div>
             )}
-            <section>
-            <CommentForm handleAddComment={(commentFormData) => handleAddComment(commentFormData, review._id)}/>
-            {review.comments.map((comment) => (
-                <article key={comment._id}>
-                    <header>
-                        <p>
-                            {comment.author.username} {new Date(comment.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
-                        </p>
-                    </header>
-                    <p>{comment.text}</p>
-                </article>
-            ))}
+             <section>
+                <CommentForm
+                    handleAddComment={handleAddComment}
+                    handleEditComment={handleEditComment}
+                    initialCommentData={editingComment && editingComment.reviewId === review._id ? editingComment : null}
+                    reviewId={review._id}
+                    commentId={editingComment?._id}
+                    resetCommentForm={() => setEditingComment(null)} 
+                />
+
+
+                {review.comments.map((comment) => (
+                    <article key={comment._id}>
+                        <header>
+                            <p>{comment.author.username} {new Date(comment.createdAt).toLocaleDateString()}</p>
+                            <button onClick={() => setEditingComment(comment)}>Edit Comment</button>
+                            <button onClick={() => handleDeleteComment(comment._id)}>Delete Comment</button>
+                        </header>
+                        <p>{comment.text}</p>
+                    </article>
+                ))}
             </section>
         </li>
     ));
-
-    
 
     return (
         <div>
@@ -146,3 +201,4 @@ const ReviewPage = () => {
 };
 
 export default ReviewPage;
+
