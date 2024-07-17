@@ -72,7 +72,7 @@ const Dashboard = ({ }) => {
         <div className="bottom-part-two"></div>
       </div>
 
-      <h2 className="mb-5 custom-font">Find your book</h2>
+      <h2 className="mb-5 custom-font text-center">Find your book</h2>
       <div className="search">
         <input
           type="text"
