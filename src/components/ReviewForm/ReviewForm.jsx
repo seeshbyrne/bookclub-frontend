@@ -14,7 +14,7 @@ const ReviewForm = (props) => {
 
     const [rating, setRating] = useState(null);
     const [hover, setHover] = useState(null);
-    const [formData, setFormData] = useState(initialState);
+    const [formData, setFormData] = useState(props.initialState || initialState);
     const [isOpen, setIsOpen] = useState(false);
 
     const id = props.selectedReviewId;
@@ -24,13 +24,16 @@ const ReviewForm = (props) => {
             const reviewData = await reviewService.show(id);
             setFormData(reviewData);
         };
-        if (id) fetchReview();
+        if (id) {
+            fetchReview();
+            setIsOpen(true);
+        }
     }, [id]);
     
     const closeModal = () => {
         setIsOpen(false);
         props.setIsModalOpen(false);
-        setFormData(initialState);
+        setFormData(props.initialState || initialState);
     }
 
     const _handleChange = (event) => {
@@ -77,7 +80,7 @@ const ReviewForm = (props) => {
                                     <form onSubmit={_handleSubmit} className="space-y-6">
                                         <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                                             <div className="sm:col-span-4">
-                                                <label htmlFor="bookId" className="block text-sm font-medium leading-6 text-gray-900">
+                                                {/* <label htmlFor="bookId" className="block text-sm font-medium leading-6 text-gray-900">
                                                     Book ID
                                                 </label>
                                                 <div className="mt-2">
@@ -90,11 +93,12 @@ const ReviewForm = (props) => {
                                                         required
                                                         className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                                     />
-                                                </div>
+                                                </div> */}
                                             </div>
 
                                             <div className="sm:col-span-4">
-                                                <label htmlFor="bookTitle" className="block text-sm font-medium leading-6 text-gray-900">
+                                                <h2>{ formData.bookTitle }</h2>
+                                                {/* <label htmlFor="bookTitle" className="block text-sm font-medium leading-6 text-gray-900">
                                                     Book Title
                                                 </label>
                                                 <div className="mt-2">
@@ -107,11 +111,12 @@ const ReviewForm = (props) => {
                                                         required
                                                         className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                                     />
-                                                </div>
+                                                </div> */}
                                             </div>
 
                                             <div className="sm:col-span-4">
-                                                <label htmlFor="bookAuthor" className="block text-sm font-medium leading-6 text-gray-900">
+                                                <h4>{ formData.bookAuthor }</h4>
+                                                {/* <label htmlFor="bookAuthor" className="block text-sm font-medium leading-6 text-gray-900">
                                                     Book Author
                                                 </label>
                                                 <div className="mt-2">
@@ -124,7 +129,7 @@ const ReviewForm = (props) => {
                                                         required
                                                         className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                                     />
-                                                </div>
+                                                </div> */}
                                             </div>
                                         </div>
 

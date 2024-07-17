@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import './BookDetails.css'
 import ReviewForm from '../ReviewForm/ReviewForm';
@@ -9,6 +9,16 @@ const BookDetails = () => {
   const { book } = location.state || {};
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
+
+  const params = useParams();
+
+  const initialState = {
+    bookId: book.id,
+    bookTitle: book.volumeInfo.title,
+    bookAuthor: book.volumeInfo.authors.join(', '),
+    text: '',
+    rating: 0
+  };
 
   if (!book) {
     return <div>No book details available</div>;
@@ -33,7 +43,11 @@ const BookDetails = () => {
         <a href={book.volumeInfo.previewLink} target="_blank" rel="noopener noreferrer" className="more-button">
           <button className="more-button">More</button>
         </a>
-        <ReviewForm setIsModalOpen={setIsModalOpen} handleAddReview={_handleAddReview}/>
+        <ReviewForm
+          setIsModalOpen={setIsModalOpen}
+          handleAddReview={_handleAddReview}
+          initialState={initialState} 
+        />
       </div>
     </div>
   );
