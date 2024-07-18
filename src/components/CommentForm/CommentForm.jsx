@@ -28,7 +28,7 @@ const CommentForm = ({ handleAddComment, handleEditComment, initialCommentData, 
     const handleSubmit = (event) => {
         event.preventDefault();
         if (commentId) {
-            handleEditComment(commentId, formData);
+            handleEditComment(reviewId, commentId, formData);
         } else {
             handleAddComment(formData, reviewId);
         }

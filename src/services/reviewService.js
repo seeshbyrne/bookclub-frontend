@@ -134,9 +134,8 @@ const updateComment = async (reviewId, commentId, commentFormData) => {
         const response = await fetch(`${BASE_URL}/${reviewId}/comments/${commentId}`, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json',
                 Authorization: 'Bearer ' + localStorage.getItem('token'),
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(commentFormData)
         });

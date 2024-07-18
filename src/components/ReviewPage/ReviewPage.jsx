@@ -13,7 +13,7 @@ const ReviewPage = () => {
     const [selectedReviewId, setSelectedReviewId] = useState(null);
 
 
-    const [editingComment, setEditingComment] = useState(null); /////////////////////
+    const [editingComment, setEditingComment] = useState(''); /////////////////////
 
     const user = useContext(AuthedUserContext);
     const { id } = useParams();
@@ -74,14 +74,11 @@ const ReviewPage = () => {
         }
     };
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-    const handleEditComment = async (commentId, updatedCommentData) => {
+    const handleEditComment = async (reviewId, commentId, updatedCommentData) => {
         try {
-            const updatedComment = await reviewService.updateComment(selectedReviewId, commentId, updatedCommentData);
+            const updatedComment = await reviewService.updateComment(reviewId, commentId, updatedCommentData);
             const updatedReviews = reviews.map((review) => {
-                if (review._id === selectedReviewId) {
+                if (review._id === reviewId) {
                     return {
                         ...review,
                         comments: review.comments.map((comment) =>
@@ -92,18 +89,18 @@ const ReviewPage = () => {
                 return review;
             });
             setReviews(updatedReviews);
-            setEditingComment(null);
+            setEditingComment(''); // Reset editing comment state
         } catch (error) {
-            console.error('Error editing comment:', error);
+            console.error(error.message);
         }
     };
 
 
-    const handleDeleteComment = async (commentId) => {
+    const handleDeleteComment = async (reviewId, commentId) => {
         try {
-            await reviewService.deleteComment(selectedReviewId, commentId);
+            await reviewService.deleteComment(reviewId, commentId);
             const updatedReviews = reviews.map((review) => {
-                if (review._id === selectedReviewId) {
+                if (review._id === reviewId) {
                     return {
                         ...review,
                         comments: review.comments.filter((comment) => comment._id !== commentId)
@@ -151,11 +148,11 @@ const ReviewPage = () => {
                     </button>
                 </div>
             )}
-             <section>
+            <section>
                 <CommentForm
                     handleAddComment={handleAddComment}
                     handleEditComment={handleEditComment}
-                    initialCommentData={editingComment && editingComment.reviewId === review._id ? editingComment : null}
+                    initialCommentData={editingComment && editingComment.reviewId === review._id ? editingComment : null} // Pass editingComment if it matches the current review
                     reviewId={review._id}
                     commentId={editingComment?._id}
                     resetCommentForm={() => setEditingComment(null)} 
@@ -167,7 +164,7 @@ const ReviewPage = () => {
                         <header>
                             <p>{comment.author.username} {new Date(comment.createdAt).toLocaleDateString()}</p>
                             <button onClick={() => setEditingComment(comment)}>Edit Comment</button>
-                            <button onClick={() => handleDeleteComment(comment._id)}>Delete Comment</button>
+                            <button onClick={() => handleDeleteComment(review._id, comment._id)}>Delete Comment</button>
                         </header>
                         <p>{comment.text}</p>
                     </article>
