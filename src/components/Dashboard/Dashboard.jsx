@@ -19,9 +19,7 @@ const Dashboard = ({ }) => {
         .catch(error => console.log(error))
     }
   }
-  // const handleBookClick = (book) => {
-  //   navigate(`/books/${book.id}`, { state: { book }});
-  // };
+
 
   return (
     <main>

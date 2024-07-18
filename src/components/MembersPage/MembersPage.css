@@ -1,24 +1,57 @@
+/* //////////////////// BOOK SHELF ////////////// */
+
+.square-container-members {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+}
+
+.trapezium-members {
+    width: 100%;
+    border-bottom: 20px solid #E4DED0ff;
+    border-left: 25px solid transparent; 
+    border-right: 25px solid transparent;
+}
+
+.bottom-part-members {
+    width: 100%;
+    background: #F3ECE2;
+    height: 6px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(10deg);
+    box-shadow: 10px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
 .userList {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     justify-content: center;
+    width: 85%;
+    margin: 0 auto;
 }
 
 .userListItem {
     list-style: none;
     background-color: #F8F2EB;
     border-radius: 25px;
-    margin-bottom: 40px;
     margin-top: 50px;
     transform-style: preserve-3d;
     transform: rotateX(10deg);
     box-shadow: 10px 4px 6px rgba(0, 0, 0, 0.05);
-    width: 250px;
-    height: 75px;
+    width: 140px;
+    height: 150px;
     display: flex;
     justify-content: center;
     justify-self: center;
     align-items: center;
+    position: relative;
+    top: 12px;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .userListItem:hover {
@@ -30,6 +63,7 @@
 .userLink {
     display: flex;
     align-items: center;
+    flex-direction: column;
 }
 
 .userLink .icon {
@@ -38,7 +72,6 @@
 
 .userLink h2 {
     margin: 0;
-    margin-left: 10px;
 }
 
 .profile-img {
@@ -53,4 +86,39 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.members-container {
+    padding-bottom: 50px; /* Adjust the value as needed */
+}
+
+
+.search-input {
+    display: block;
+    width: 80%;
+    max-width: 400px;
+    margin: 40px auto 0;
+    padding: 10px;
+    font-size: 13px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: 0;
+    border: 0;
+    height: 35px;
+}
+
+.icon-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.member-since {
+    display: flex;
+    margin-top: 40px;
+}
+
+.member-date {
+    margin-top: 3px;
 }

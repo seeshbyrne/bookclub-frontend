@@ -172,6 +172,9 @@ const ReviewPage = () => {
                 {review.comments.map((comment) => (
                     <article key={comment._id} className="comment">
                         <header>
+
+                            <p></p>
+
                             <p className="comment-date">{comment.author.username} {new Date(comment.createdAt).toLocaleDateString(undefined, {
                                 year: 'numeric',
                                 month: 'long'
