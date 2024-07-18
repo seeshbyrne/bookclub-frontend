@@ -149,8 +149,8 @@ const ReviewPage = () => {
 
             {!id && (
                 <div className="edit-delete-review text-black">
-                    <button onClick={() => _handleEditClick(review._id)} className="edit-review"><CiEdit /></button>
-                    <button onClick={() => _handleDeleteReview(review._id)} className="delete-review ml-1">
+                    <button onClick={() => _handleEditClick(review._id)} className="edit-review bg-white p-2 text-xl"><CiEdit /></button>
+                    <button onClick={() => _handleDeleteReview(review._id)} className="delete-review ml-1 bg-white p-2 text-xl">
                         <MdDeleteOutline />
                     </button>
                 </div>
