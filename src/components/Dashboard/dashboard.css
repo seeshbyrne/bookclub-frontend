@@ -14,7 +14,6 @@ body {
 }
 
 /* BOOK SHELF >>>>>>>>>>>>>>>>>>>>>>>>>> */
-
 .square-container-one,
 .square-container-two {
     display: flex;
@@ -48,7 +47,6 @@ body {
 .square-container-two {
     margin-bottom: 50px;
 }
-
 /* BOOK SHELF >>>>>>>>>>>>>>>>>>>>>>>>>> */
 
 h1 {
@@ -96,7 +94,7 @@ h1 {
 }
 
 .trending h2 span {
-    display: block; /* Make each word a block element */
+    display: block;
     line-height: 1;
 }
 

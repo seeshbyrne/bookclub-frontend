@@ -1,5 +1,5 @@
 import { AuthedUserContext } from '../../App';
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './dashboard.css';
 import BookCard from '../BookCard/BookCard';
@@ -20,7 +20,6 @@ const Dashboard = ({ }) => {
     }
   }
 
-
   return (
     <main>
       <h1 className="py-5 pt-10">Welcome{user ? ', ' + user.username : ' to BookClub'}</h1>
@@ -38,19 +37,19 @@ const Dashboard = ({ }) => {
           <span>Sellers</span>
         </h2>
         <div className='display-book'>
-        <a href="https://books.google.com/books?id=fxcjEAAAQBAJ" target="_blank" rel="noopener noreferrer">
-          <img src="http://books.google.com/books/content?id=fxcjEAAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api" alt="book image" />
-        </a>
+          <a href="https://books.google.com/books?id=fxcjEAAAQBAJ" target="_blank" rel="noopener noreferrer">
+            <img src="http://books.google.com/books/content?id=fxcjEAAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api" alt="book image" />
+          </a>
         </div>
         <div className='display-book'>
-        <a href="https://books.google.com/books?id=sTKxDAAAQBAJ" target="_blank" rel="noopener noreferrer">
-          <img src="http://books.google.com/books/content?id=sTKxDAAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api" alt="book image" />
-        </a>
+          <a href="https://books.google.com/books?id=sTKxDAAAQBAJ" target="_blank" rel="noopener noreferrer">
+            <img src="http://books.google.com/books/content?id=sTKxDAAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api" alt="book image" />
+          </a>
         </div>
         <div className='display-book'>
-        <a href="https://books.google.com/books?id=wmnuDwAAQBAJ" target="_blank" rel="noopener noreferrer">
-          <img src="http://books.google.com/books/content?id=wmnuDwAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api" alt="book image" />
-        </a>
+          <a href="https://books.google.com/books?id=wmnuDwAAQBAJ" target="_blank" rel="noopener noreferrer">
+            <img src="http://books.google.com/books/content?id=wmnuDwAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api" alt="book image" />
+          </a>
         </div>
       </div>
 
@@ -62,15 +61,15 @@ const Dashboard = ({ }) => {
       <div className='second-shelf'>
 
         <div className='display-book'>
-        <a href="https://books.google.com/books?id=4xsDEQAAQBAJ" target="_blank" rel="noopener noreferrer">
-          <img src="http://books.google.com/books/content?id=4xsDEQAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api" alt="book image" />
-        </a>
+          <a href="https://books.google.com/books?id=4xsDEQAAQBAJ" target="_blank" rel="noopener noreferrer">
+            <img src="http://books.google.com/books/content?id=4xsDEQAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api" alt="book image" />
+          </a>
         </div>
 
         <div className='display-book'>
-        <a href="https://books.google.com/books?id=SSJxEAAAQBAJ" target="_blank" rel="noopener noreferrer">
-          <img src="http://books.google.com/books/content?id=SSJxEAAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api" alt="book image" />
-        </a>
+          <a href="https://books.google.com/books?id=SSJxEAAAQBAJ" target="_blank" rel="noopener noreferrer">
+            <img src="http://books.google.com/books/content?id=SSJxEAAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api" alt="book image" />
+          </a>
         </div>
 
         <div className='display-book'>

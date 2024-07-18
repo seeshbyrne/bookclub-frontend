@@ -38,10 +38,9 @@
     margin-right: 10px;
 }
 
-
 .book-image {
     position: absolute;
-    top: 30px; 
+    top: 30px;
     right: 10px;
     width: 150px;
     height: auto;
@@ -100,10 +99,10 @@
 
 .edit-review {
     padding: 5px;
-    font-size: 14px;
+    font-size: 17px;
 }
 
 .delete-review {
     padding: 5px;
-    font-size: 15px;
+    font-size: 17px;
 }

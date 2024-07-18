@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
+import './CommentForm.css';
 
 const CommentForm = ({ handleAddComment, handleEditComment, initialCommentData, reviewId, commentId, resetCommentForm }) => {
-
     const [formData, setFormData] = useState(initialCommentData || { text: '' });
 
     useEffect(() => {
@@ -36,10 +36,8 @@ const CommentForm = ({ handleAddComment, handleEditComment, initialCommentData, 
                 rows="3"
                 placeholder='Leave a comment'
             />
-            <button
-                type="submit"
-                className="absolute top-2 right-2 bg-gray-500 text-white rounded px-3 py-1"
-            >
+            <button type="submit"
+                className="absolute top-2 right-2 bg-gray-500 text-white rounded px-3 py-1">
                 {commentId ? 'Update Comment' : 'Add comment'}
             </button>
         </form>

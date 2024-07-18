@@ -20,8 +20,6 @@ const ReviewPage = () => {
     const { id } = useParams();
     const userId = id || user._id;
 
-    console.log(reviews);
-
     const navigate = useNavigate();
 
     const _handleAddReview = async (reviewFormData) => {
@@ -67,7 +65,8 @@ const ReviewPage = () => {
 
     const handleAddComment = async (commentFormData, reviewId) => {
         try {
-            const newComment = await reviewService.createComment(reviewId, commentFormData);
+            const { text } = commentFormData;
+            const newComment = await reviewService.createComment(reviewId, { text, authorUsername: user.username });
             const updatedReviews = reviews.map((review) =>
                 review._id === reviewId ? { ...review, comments: [...review.comments, newComment] } : review
             );
@@ -79,7 +78,8 @@ const ReviewPage = () => {
 
     const handleEditComment = async (reviewId, commentId, updatedCommentData) => {
         try {
-            const updatedComment = await reviewService.updateComment(reviewId, commentId, updatedCommentData);
+            const { text } = updatedCommentData;
+            const updatedComment = await reviewService.updateComment(reviewId, commentId, { text, authorUsername: user.username });
             const updatedReviews = reviews.map((review) => {
                 if (review._id === reviewId) {
                     return {
@@ -147,7 +147,6 @@ const ReviewPage = () => {
                 })}
             </div>
 
-
             {!id && (
                 <div className="edit-delete-review text-black">
                     <button onClick={() => _handleEditClick(review._id)} className="edit-review"><CiEdit /></button>
@@ -156,7 +155,7 @@ const ReviewPage = () => {
                     </button>
                 </div>
             )}
-
+            
             <p className="mb-5">{review.text}</p>
 
             <section>
@@ -172,14 +171,10 @@ const ReviewPage = () => {
                 {review.comments.map((comment) => (
                     <article key={comment._id} className="comment">
                         <header>
-
-                            <p></p>
-
-                            <p className="comment-date">{comment.author.username} {new Date(comment.createdAt).toLocaleDateString(undefined, {
+                            <p className="comment-date">{new Date(comment.createdAt).toLocaleDateString(undefined, {
                                 year: 'numeric',
                                 month: 'long'
                             })}</p>
-
                             {(comment.author._id === user._id || comment.author === user._id) && (
                                 <div className="edit-delete-comment flex justify-end ">
                                     <button onClick={() => setEditingComment({ ...comment, reviewId: review._id })} className="edit-comment"><CiEdit /></button>
