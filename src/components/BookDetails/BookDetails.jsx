@@ -35,7 +35,7 @@ const BookDetails = () => {
     <div className="details">
       {/* <button className="close" onClick={() => window.history.back()}>back<i className="fas fa-times"></i></button> */}
       <div className='book-header flex flex-row gap-10 '>
-        <img src={thumbnail} alt="book image" className="book-detail-img mt-2"/>
+        <img src={thumbnail} alt="book image" className="book-detail-img mt-8"/>
         <div className='flex flex-col items-center justify-center '>
           <h1 className="text-center mb-7">{book.volumeInfo.title}</h1>
           <h3 className="text-center">{book.volumeInfo.authors.join(', ')}</h3>
