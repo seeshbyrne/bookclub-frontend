@@ -125,6 +125,7 @@ const ReviewPage = () => {
                     <img
                         src={`http://books.google.com/books/content?id=${review.bookId}&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api`}
                         alt="book image"
+                        className='w-[125px] h-[190px]'
                     />
                 </a>
             </div>
