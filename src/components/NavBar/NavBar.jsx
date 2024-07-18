@@ -33,7 +33,7 @@ const NavBar = ({ handleSignout }) => {
                 text-black 
                 bg-orange-50
                 px-4 py-1 rounded-xl">
-                <TfiCommentAlt style={{ marginRight: '8px' }} />Reviews
+                <TfiCommentAlt style={{ marginRight: '8px' }} />My Reviews
               </Link>
               <Link to="/members" 
                 className="mr-5 
