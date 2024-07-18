@@ -2,6 +2,8 @@
 
 Welcome to BookClub, the ultimate platform for book enthusiasts! This website allows users to sign in, search for their favorite books, review them, and interact with other users through comments. Users can also edit their own reviews and comments at any time.
 
+![Bookclub page](https://github.com/user-attachments/assets/3d003cbe-6255-4650-8723-3cc06bc5b9d8)
+
 ### Features:
 
 * **User Authentication**: Sign up and log in to your personalized account.
