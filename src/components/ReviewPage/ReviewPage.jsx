@@ -192,7 +192,11 @@ const ReviewPage = () => {
         <div>
             <h1 className="py-5 pt-10">{id ? 'Member ' : 'My '}Reviews</h1>
             {reviews.length === 0 ? (
-                <p className="text-center">No reviews yet</p>
+                <>
+                    <p className="text-center">No reviews yet</p>
+                    <p className="text-center">Looking for a book to review?</p>
+                    <p className="text-center">Head to the home page, search for your book and start reviewing!</p>
+                </>
             ) : (
                 <div>
                     <ul className="reviewList">
