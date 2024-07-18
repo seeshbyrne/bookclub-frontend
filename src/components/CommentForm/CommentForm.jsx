@@ -1,29 +1,16 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 
-const CommentForm = ({ handleAddComment, handleEditComment, initialCommentData, reviewId, commentId, resetCommentForm }) => { ///////////////////
-    // const [formData, setFormData] = useState({ text: '' });
+const CommentForm = ({ handleAddComment, handleEditComment, initialCommentData, reviewId, commentId, resetCommentForm }) => {
+
     const [formData, setFormData] = useState(initialCommentData || { text: '' });
 
-
-    useEffect(() => { ///////////////////////////////////////////////////
+    useEffect(() => {
         setFormData(initialCommentData || { text: '' });
-    }, [initialCommentData]); ////////////////
+    }, [initialCommentData]);
 
     const handleChange = (event) => {
-        setFormData({ ...formData, [event.target.name]: event.target.value });/////KEEP THIS ORIGINAL
+        setFormData({ ...formData, [event.target.name]: event.target.value });
     };
-
-
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     if (formData._id) {
-    //         handleEditComment(formData._id, formData.text);
-    //     } else {
-    //         handleAddComment(formData);
-    //     }
-    //     setFormData({ text: '' });
-    // };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -36,22 +23,7 @@ const CommentForm = ({ handleAddComment, handleEditComment, initialCommentData, 
         resetCommentForm();
     };
 
-
-
-
     return (
-        // <form onSubmit={handleSubmit}>
-        //     <label htmlFor="text-input">Your comment:</label>
-        //     <textarea
-        //         required
-        //         type="text"
-        //         name="text"
-        //         id="text-input"
-        //         value={formData.text}
-        //         onChange={handleChange}
-        //     />
-        //     <button type="submit">Submit Comment</button>
-        // </form>
         <form onSubmit={handleSubmit}>
             <label htmlFor="text-input">Your comment:</label>
             <textarea

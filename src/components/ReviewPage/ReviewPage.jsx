@@ -6,14 +6,14 @@ import * as reviewService from '../../services/reviewService';
 import './ReviewPage.css';
 import { AuthedUserContext } from '../../App';
 import { FaStar } from 'react-icons/fa';
+import { CiEdit } from "react-icons/ci";
+import { MdDeleteOutline } from "react-icons/md";
 
 const ReviewPage = () => {
     const [reviews, setReviews] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedReviewId, setSelectedReviewId] = useState(null);
-
-
-    const [editingComment, setEditingComment] = useState(''); /////////////////////
+    const [editingComment, setEditingComment] = useState('');
 
     const user = useContext(AuthedUserContext);
     const { id } = useParams();
@@ -89,12 +89,11 @@ const ReviewPage = () => {
                 return review;
             });
             setReviews(updatedReviews);
-            setEditingComment(''); // Reset editing comment state
+            setEditingComment('');
         } catch (error) {
             console.error(error.message);
         }
     };
-
 
     const handleDeleteComment = async (reviewId, commentId) => {
         try {
@@ -113,9 +112,6 @@ const ReviewPage = () => {
             console.error('Error deleting comment:', error);
         }
     };
-
-    //////////////////////////////////////////////////////////////////////
-
 
     const reviewListItems = reviews.map((review) => (
         <li key={review._id} className='reviewListItem'>
@@ -158,13 +154,14 @@ const ReviewPage = () => {
                     resetCommentForm={() => setEditingComment(null)} 
                 />
 
-
                 {review.comments.map((comment) => (
                     <article key={comment._id}>
                         <header>
                             <p>{comment.author.username} {new Date(comment.createdAt).toLocaleDateString()}</p>
-                            <button onClick={() => setEditingComment(comment)}>Edit Comment</button>
-                            <button onClick={() => handleDeleteComment(review._id, comment._id)}>Delete Comment</button>
+                            <div className="edit-delete-comment flex justify-end ">
+                                <button onClick={() => setEditingComment(comment)} className="edit-comment"><CiEdit /></button>
+                               <button onClick={() => handleDeleteComment(review._id, comment._id)} className="delete-comment ml-2"><MdDeleteOutline /></button> 
+                            </div>
                         </header>
                         <p>{comment.text}</p>
                     </article>
