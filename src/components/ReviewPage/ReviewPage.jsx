@@ -64,8 +64,7 @@ const ReviewPage = () => {
 
     const handleAddComment = async (commentFormData, reviewId) => {
         try {
-            const { text } = commentFormData;
-            const newComment = await reviewService.createComment(reviewId, { text, authorUsername: user.username });
+            const newComment = await reviewService.createComment(reviewId, commentFormData);
             const updatedReviews = reviews.map((review) =>
                 review._id === reviewId ? { ...review, comments: [...review.comments, newComment] } : review
             );
@@ -77,8 +76,7 @@ const ReviewPage = () => {
 
     const handleEditComment = async (reviewId, commentId, updatedCommentData) => {
         try {
-            const { text } = updatedCommentData;
-            const updatedComment = await reviewService.updateComment(reviewId, commentId, { text, authorUsername: user.username });
+            const updatedComment = await reviewService.updateComment(reviewId, commentId, updatedCommentData);
             const updatedReviews = reviews.map((review) => {
                 if (review._id === reviewId) {
                     return {
