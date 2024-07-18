@@ -189,7 +189,7 @@ const ReviewPage = () => {
 
     return (
         <div>
-            <h1 className="py-5 pt-10">Reviews</h1>
+            <h1 className="py-5 pt-10">{id ? 'Member ' : 'My '}Reviews</h1>
             {reviews.length === 0 ? (
                 <p className="text-center">No reviews yet</p>
             ) : (
