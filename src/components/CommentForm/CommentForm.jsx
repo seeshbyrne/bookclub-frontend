@@ -25,9 +25,9 @@ const CommentForm = ({ handleAddComment, handleEditComment, initialCommentData, 
 
     return (
         <form onSubmit={handleSubmit} className="relative">
-            <label htmlFor="text-input"></label>
+            <label htmlFor="text-input" className='z-0'></label>
             <textarea
-                className="rounded mb-3 p-1 pr-16 pl-2 w-full resize-y"
+                className="rounded mb-3 p-1 pr-16 pl-2 w-full resize-y relative z-10"
                 required
                 name="text"
                 id="text-input"
