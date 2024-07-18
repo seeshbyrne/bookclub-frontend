@@ -1,6 +1,6 @@
-# Bookclub
+# BookClub
 
-Welcome to ????????, the ultimate platform for book enthusiasts! This website allows users to sign in, search for their favorite books, review them, and interact with other users through comments. Users can also edit their own reviews and comments at any time.
+Welcome to BookClub, the ultimate platform for book enthusiasts! This website allows users to sign in, search for their favorite books, review them, and interact with other users through comments. Users can also edit their own reviews and comments at any time.
 
 ### Features:
 
