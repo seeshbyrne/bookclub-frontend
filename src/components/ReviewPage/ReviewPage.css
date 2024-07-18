@@ -54,3 +54,9 @@
     font-weight: 500;
     font-size: 25px;
 }
+
+.delete-comment,
+.edit-comment {
+    background-color: #F9F9F9;
+    padding: 7px;
+}
