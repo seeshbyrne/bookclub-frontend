@@ -13,7 +13,7 @@ const ReviewPage = () => {
     const [reviews, setReviews] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedReviewId, setSelectedReviewId] = useState(null);
-    const [editingComment, setEditingComment] = useState('');
+    const [editingComment, setEditingComment] = useState(null);
 
     const user = useContext(AuthedUserContext);
     const { id } = useParams();
@@ -155,7 +155,7 @@ const ReviewPage = () => {
 
             <p className="mb-5">{review.text}</p>
 
-            <section>
+            
                 <CommentForm
                     handleAddComment={handleAddComment}
                     handleEditComment={handleEditComment}
@@ -164,7 +164,7 @@ const ReviewPage = () => {
                     commentId={editingComment?._id}
                     resetCommentForm={() => setEditingComment(null)}
                 />
-
+                <section>
                 {review.comments.map((comment) => (
                     <article key={comment._id} className="comment">
                         <header>
