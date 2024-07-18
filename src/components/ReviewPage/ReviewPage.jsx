@@ -169,10 +169,13 @@ const ReviewPage = () => {
                                 year: 'numeric',
                                 month: 'long'
                             })}</p>
-                            <div className="edit-delete-comment flex justify-end ">
-                                <button onClick={() => setEditingComment(comment)} className="edit-comment"><CiEdit /></button>
-                                <button onClick={() => handleDeleteComment(review._id, comment._id)} className="delete-comment ml-2"><MdDeleteOutline /></button>
-                            </div>
+
+                            {comment.author._id === user._id && (
+                                <div className="edit-delete-comment flex justify-end ">
+                                    <button onClick={() => setEditingComment(comment)} className="edit-comment"><CiEdit /></button>
+                                    <button onClick={() => handleDeleteComment(review._id, comment._id)} className="delete-comment ml-2"><MdDeleteOutline /></button>
+                                </div>
+                            )}
                         </header>
                         <p>{comment.text}</p>
                     </article>
