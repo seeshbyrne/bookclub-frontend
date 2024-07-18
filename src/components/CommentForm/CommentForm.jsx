@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import './CommentForm.css'
 
 const CommentForm = ({ handleAddComment, handleEditComment, initialCommentData, reviewId, commentId, resetCommentForm }) => {
 
@@ -27,7 +28,7 @@ const CommentForm = ({ handleAddComment, handleEditComment, initialCommentData, 
         <form onSubmit={handleSubmit} className="relative">
             <label htmlFor="text-input" className='z-0'></label>
             <textarea
-                className="rounded mb-3 p-1 pr-16 pl-2 w-full resize-y relative z-10"
+                className="rounded mb-3 p-1 pr-16 pl-2 w-full resize-y z-10"
                 required
                 name="text"
                 id="text-input"

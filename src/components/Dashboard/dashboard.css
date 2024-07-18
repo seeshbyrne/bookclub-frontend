@@ -105,10 +105,9 @@ h1 {
     box-shadow: 6px -3px 6px 1px rgba(0, 0, 0, 0.6);
 }
 
+ 
 .display-book img:hover {
-    transition: .7s;
-    box-shadow: 10px 2px 6px rgba(0, 0, 0, 0.5);
-    transform: scale(1.05);
+    border: solid transparent;
 }
 
 .search {
