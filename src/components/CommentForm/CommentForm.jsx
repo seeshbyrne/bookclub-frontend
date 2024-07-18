@@ -24,18 +24,24 @@ const CommentForm = ({ handleAddComment, handleEditComment, initialCommentData, 
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="relative">
             <label htmlFor="text-input"></label>
             <textarea
-                className="rounded"
+                className="rounded mb-3 p-1 pr-16 pl-2 w-full resize-y"
                 required
-                type="text"
                 name="text"
                 id="text-input"
                 value={formData.text}
                 onChange={handleChange}
+                rows="3"
+                placeholder='Leave a comment'
             />
-            <button type="submit" className="px-2 py-1 mb-2 ml-3" >{commentId ? 'Update Comment' : 'Add comment'}</button>
+            <button
+                type="submit"
+                className="absolute top-2 right-2 bg-gray-500 text-white rounded px-3 py-1"
+            >
+                {commentId ? 'Update Comment' : 'Add comment'}
+            </button>
         </form>
     );
 };
