@@ -78,7 +78,7 @@ const ReviewForm = (props) => {
                                     </div>
 
                                     <form onSubmit={_handleSubmit} className="space-y-6">
-                                        <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                                        <div className="grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
                                             <div className="sm:col-span-4">
                                                 {/* <label htmlFor="bookId" className="block text-sm font-medium leading-6 text-gray-900">
                                                     Book ID
@@ -97,7 +97,7 @@ const ReviewForm = (props) => {
                                             </div>
 
                                             <div className="sm:col-span-4">
-                                                <h2>{ formData.bookTitle }</h2>
+                                                <h2 className="font-medium text-2xl">{ formData.bookTitle }</h2>
                                                 {/* <label htmlFor="bookTitle" className="block text-sm font-medium leading-6 text-gray-900">
                                                     Book Title
                                                 </label>
@@ -115,7 +115,7 @@ const ReviewForm = (props) => {
                                             </div>
 
                                             <div className="sm:col-span-4">
-                                                <h4>{ formData.bookAuthor }</h4>
+                                                <h4>by { formData.bookAuthor }</h4>
                                                 {/* <label htmlFor="bookAuthor" className="block text-sm font-medium leading-6 text-gray-900">
                                                     Book Author
                                                 </label>
