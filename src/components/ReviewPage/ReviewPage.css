@@ -38,6 +38,19 @@
     margin-right: 10px;
 }
 
+
+.book-image {
+    position: absolute;
+    top: 30px; 
+    right: 10px;
+    width: 150px;
+    height: auto;
+}
+
+.book-image img {
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5);
+}
+
 .username {
     font-weight: bold;
     font-size: 16px;
@@ -79,4 +92,18 @@
 .comment-date {
     font-size: 11px;
     margin-bottom: 15px;
+}
+
+.edit-delete-review {
+    padding: 5px;
+}
+
+.edit-review {
+    padding: 5px;
+    font-size: 14px;
+}
+
+.delete-review {
+    padding: 5px;
+    font-size: 15px;
 }
