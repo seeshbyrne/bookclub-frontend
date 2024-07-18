@@ -132,7 +132,17 @@ const ReviewPage = () => {
             </div>
 
             <h2 className="review-book-title">{review.bookTitle}</h2>
-            <p className="review-book-author py-3"> {review.bookAuthor}</p>
+            <p className="review-book-author py-3 mb-12"> {review.bookAuthor}</p>
+
+            {!id && (
+                <div className="edit-delete-review text-black">
+                    <button onClick={() => _handleEditClick(review._id)} className="edit-review bg-white p-2 text-xl"><CiEdit /></button>
+                    <button onClick={() => _handleDeleteReview(review._id)} className="delete-review ml-1 bg-white p-2 text-xl">
+                        <MdDeleteOutline />
+                    </button>
+                </div>
+            )}
+
             <div className="starRating mb-3">
                 {[...Array(5)].map((star, index) => {
                     const currentRating = index + 1;
@@ -145,15 +155,6 @@ const ReviewPage = () => {
                     );
                 })}
             </div>
-
-            {!id && (
-                <div className="edit-delete-review text-black">
-                    <button onClick={() => _handleEditClick(review._id)} className="edit-review bg-white p-2 text-xl"><CiEdit /></button>
-                    <button onClick={() => _handleDeleteReview(review._id)} className="delete-review ml-1 bg-white p-2 text-xl">
-                        <MdDeleteOutline />
-                    </button>
-                </div>
-            )}
 
             <p className="mb-5">{review.text}</p>
 

@@ -40,7 +40,7 @@
 
 .book-image {
     position: absolute;
-    top: 30px;
+    top: 25px;
     right: 10px;
     width: 150px;
     height: auto;
@@ -94,7 +94,7 @@
 }
 
 .edit-delete-review {
-    padding: 5px;
+    padding: 0 5px 15px 0;
 }
 
 .edit-review {
