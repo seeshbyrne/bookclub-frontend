@@ -84,7 +84,7 @@ const Dashboard = ({ }) => {
         <button onClick={searchBook} className="custom-font">Search</button>
       </div>
 
-      <div className="container">
+      <div className="container flex flex-wrap justify-center">
         {<BookCard book={{ items: bookData }} />}
       </div>
     </main>
