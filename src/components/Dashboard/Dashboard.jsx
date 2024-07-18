@@ -27,9 +27,9 @@ const Dashboard = ({ }) => {
     <main>
       <h1 className="py-5 pt-10">Welcome{user ? ', ' + user.username : ' to BookClub'}</h1>
 
-      {user || (
+      {!user && (
         <>
-          <p className='text-center'>A platform for connecting book lovers.</p>
+          <p className='text-center'>A platform to connect book lovers.</p>
           <p className='text-center'>Sign in or create an account to view the full site.</p>
         </>
       )}
