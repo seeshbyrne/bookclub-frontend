@@ -91,7 +91,7 @@ const deleteReview = async (id) => {
     }
 };
 
-// ORIGINAL Create a new Comment
+// Create a new Comment
 const createComment = async (reviewId, comment) => {
     try {
         const response = await fetch(`${BASE_URL}/${ reviewId }/comments`, {
@@ -108,27 +108,7 @@ const createComment = async (reviewId, comment) => {
     }
 };
 
-
-/////UPDATED CREATE COMMENT
-// const createComment = async (reviewId, comment) => {
-//     try {
-//         const response = await fetch(`${BASE_URL}/${reviewId}/comments`, {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 Authorization: 'Bearer ' + localStorage.getItem('token')
-//             },
-//             body: JSON.stringify(comment)
-//         });
-//         return response.json();
-//     } catch (error) {
-//         console.error('Error fetching user reviews:', error);
-//     }
-// };
-
-
-
-//UPDATE COMMENT
+// Update Comment
 const updateComment = async (reviewId, commentId, commentFormData) => {
     try {
         const response = await fetch(`${BASE_URL}/${reviewId}/comments/${commentId}`, {
@@ -145,9 +125,7 @@ const updateComment = async (reviewId, commentId, commentFormData) => {
     }
 };
 
-
-
-// DELETE COMMENT
+// Delete Comment
 const deleteComment = async (reviewId, commentId) => {
     try {
         const response = await fetch(`${BASE_URL}/${reviewId}/comments/${commentId}`, {
@@ -161,7 +139,6 @@ const deleteComment = async (reviewId, commentId) => {
         console.error('Error deleting comment:', error);
     }
 };
-
 
 export {
     index,

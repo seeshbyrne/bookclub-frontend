@@ -6,16 +6,14 @@ import Dashboard from './components/Dashboard/Dashboard';
 import BookDetails from './components/BookDetails/BookDetails';
 import SignupForm from './components/SignupForm/SignupForm';
 import SigninForm from './components/SigninForm/SigninForm';
-import * as authService from '../src/services/authService'; // import the authservice
+import * as authService from '../src/services/authService';
 import ReviewPage from './components/ReviewPage/ReviewPage';
 import MembersPage from './components/MembersPage/MembersPage';
 
 export const AuthedUserContext = createContext(null);
 
-// do we need to add the other services here??
-
 const App = () => {
-  const [user, setUser] = useState(authService.getUser()); // using the method from authservice
+  const [user, setUser] = useState(authService.getUser());
 
   const handleSignout = () => {
     authService.signout();
@@ -25,15 +23,15 @@ const App = () => {
   return (
     <>
       <AuthedUserContext.Provider value={user}>
-        <NavBar user={user} handleSignout={handleSignout}/>
+        <NavBar user={user} handleSignout={handleSignout} />
         <Routes>
           {user ? (
             <>
-            <Route path="/" element={<Dashboard user={user} />} />
-            <Route path="/books/:bookId" element={<BookDetails />} />
-            <Route path="/reviews" element={<ReviewPage />} />
-            <Route path="/members" element={<MembersPage />} />
-            <Route path="/members/:id" element={<ReviewPage />} />
+              <Route path="/" element={<Dashboard user={user} />} />
+              <Route path="/books/:bookId" element={<BookDetails />} />
+              <Route path="/reviews" element={<ReviewPage />} />
+              <Route path="/members" element={<MembersPage />} />
+              <Route path="/members/:id" element={<ReviewPage />} />
             </>
           ) : (
             <Route path="/" element={<Dashboard />} />

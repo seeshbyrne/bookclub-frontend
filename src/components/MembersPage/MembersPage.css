@@ -1,5 +1,4 @@
-/* //////////////////// BOOK SHELF ////////////// */
-
+/* // BOOK SHELF // */
 .square-container-members {
     display: flex;
     justify-content: center;
@@ -25,6 +24,7 @@
     transform: rotateX(10deg);
     box-shadow: 10px 4px 6px rgba(0, 0, 0, 0.5);
 }
+/* // BOOK SHELF // */
 
 .userList {
     display: grid;
@@ -89,9 +89,8 @@
 }
 
 .members-container {
-    padding-bottom: 50px; /* Adjust the value as needed */
+    padding-bottom: 50px;
 }
-
 
 .search-input {
     display: block;

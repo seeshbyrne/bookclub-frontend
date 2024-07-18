@@ -8,7 +8,6 @@ import { AuthedUserContext } from '../../App';
 import { FaStar } from 'react-icons/fa';
 import { CiEdit } from "react-icons/ci";
 import { MdDeleteOutline } from "react-icons/md";
-import { LiaBookSolid } from 'react-icons/lia';
 
 const ReviewPage = () => {
     const [reviews, setReviews] = useState([]);
@@ -155,7 +154,7 @@ const ReviewPage = () => {
                     </button>
                 </div>
             )}
-            
+
             <p className="mb-5">{review.text}</p>
 
             <section>

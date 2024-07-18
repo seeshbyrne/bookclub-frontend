@@ -1,6 +1,6 @@
 const BASE_URL = import.meta.env.VITE_EXPRESS_BACKEND_URL + '/books';
 
-// SHOWING ALL BOOKS
+// Showing All Books
 const index = async () => {
     try {
         const response = await fetch(BASE_URL, {
@@ -14,7 +14,7 @@ const index = async () => {
     }
 };
 
-//SHOWING ONE BOOK
+// Showing Book
 const show = async (id) => {
     try {
         const response = await fetch(BASE_URL + '/' + id, {

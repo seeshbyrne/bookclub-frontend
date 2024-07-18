@@ -29,7 +29,7 @@ const ReviewForm = (props) => {
             setIsOpen(true);
         }
     }, [id]);
-    
+
     const closeModal = () => {
         setIsOpen(false);
         props.setIsModalOpen(false);
@@ -55,11 +55,11 @@ const ReviewForm = (props) => {
         <>
             {props.selectedReviewId ? null : (
                 <button
-                onClick={() => setIsOpen(true)}
-                className="modal-trigger-button text-black font-semibold py-2 px-4 mb-10 rounded-md shadow-sm focus:outline-none w-[175px]"
+                    onClick={() => setIsOpen(true)}
+                    className="modal-trigger-button text-black font-semibold py-2 px-4 mb-10 rounded-md shadow-sm focus:outline-none w-[175px]"
                 >
                     Create a Review
-                </button>   
+                </button>
             )}
 
             {isOpen && (
@@ -80,56 +80,14 @@ const ReviewForm = (props) => {
                                     <form onSubmit={_handleSubmit} className="space-y-6">
                                         <div className="grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
                                             <div className="sm:col-span-4">
-                                                {/* <label htmlFor="bookId" className="block text-sm font-medium leading-6 text-gray-900">
-                                                    Book ID
-                                                </label>
-                                                <div className="mt-2">
-                                                    <input
-                                                        type="text"
-                                                        name="bookId"
-                                                        id="bookId"
-                                                        value={formData.bookId}
-                                                        onChange={_handleChange}
-                                                        required
-                                                        className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                                    />
-                                                </div> */}
                                             </div>
 
                                             <div className="sm:col-span-4">
-                                                <h2 className="font-medium text-2xl">{ formData.bookTitle }</h2>
-                                                {/* <label htmlFor="bookTitle" className="block text-sm font-medium leading-6 text-gray-900">
-                                                    Book Title
-                                                </label>
-                                                <div className="mt-2">
-                                                    <input
-                                                        type="text"
-                                                        name="bookTitle"
-                                                        id="bookTitle"
-                                                        value={formData.bookTitle}
-                                                        onChange={_handleChange}
-                                                        required
-                                                        className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                                    />
-                                                </div> */}
+                                                <h2 className="font-medium text-2xl">{formData.bookTitle}</h2>
                                             </div>
 
                                             <div className="sm:col-span-4">
-                                                <h4>by { formData.bookAuthor }</h4>
-                                                {/* <label htmlFor="bookAuthor" className="block text-sm font-medium leading-6 text-gray-900">
-                                                    Book Author
-                                                </label>
-                                                <div className="mt-2">
-                                                    <input
-                                                        type="text"
-                                                        name="bookAuthor"
-                                                        id="bookAuthor"
-                                                        value={formData.bookAuthor}
-                                                        onChange={_handleChange}
-                                                        required
-                                                        className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                                    />
-                                                </div> */}
+                                                <h4>by {formData.bookAuthor}</h4>
                                             </div>
                                         </div>
 
@@ -198,7 +156,7 @@ const ReviewForm = (props) => {
                 </div>
             )}
         </>
-      );
+    );
 };
 
 export default ReviewForm;

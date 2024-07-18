@@ -17,35 +17,35 @@ const NavBar = ({ handleSignout }) => {
           <div>
             <div className="nav-links flex justify-between mt-2 custom-font">
               <div className="flex flex-wrap" >
-              <Link to="/" 
-                className="mr-5 
+                <Link to="/"
+                  className="mr-5 
                 flex 
                 items-center 
                 text-black 
                 bg-orange-50
                 px-4 py-1 rounded-xl">
-                <IoMdBook style={{ marginRight: '8px' }} />Home
-              </Link>
-              <Link to="/reviews" 
-                className="mr-5 
+                  <IoMdBook style={{ marginRight: '8px' }} />Home
+                </Link>
+                <Link to="/reviews"
+                  className="mr-5 
                 flex 
                 items-center
                 text-black 
                 bg-orange-50
                 px-4 py-1 rounded-xl">
-                <TfiCommentAlt style={{ marginRight: '8px' }} />My Reviews
-              </Link>
-              <Link to="/members" 
-                className="mr-5 
+                  <TfiCommentAlt style={{ marginRight: '8px' }} />My Reviews
+                </Link>
+                <Link to="/members"
+                  className="mr-5 
                 flex 
                 items-center
                 text-black 
                 bg-orange-50
                 px-4 py-1 rounded-xl">
-                <BsPeople style={{ marginRight: '8px' }} />Members
-              </Link>
+                  <BsPeople style={{ marginRight: '8px' }} />Members
+                </Link>
               </div>
-              <Link to="" onClick={handleSignout} 
+              <Link to="" onClick={handleSignout}
                 className="text-black 
                 flex 
                 items-center
@@ -61,16 +61,16 @@ const NavBar = ({ handleSignout }) => {
           <div>
             <div className="nav-links flex justify-between mt-2 custom-font">
               <div className="flex flex-wrap" >
-              <Link to="/" 
-                className="mr-5 
+                <Link to="/"
+                  className="mr-5 
                 flex 
                 items-center 
                 text-black 
                 bg-orange-50
                 px-4 py-1 rounded-xl">
-                <IoMdBook style={{ marginRight: '8px' }} />Home
-              </Link>
-              {/* <Link to="/reviews" 
+                  <IoMdBook style={{ marginRight: '8px' }} />Home
+                </Link>
+                {/* <Link to="/reviews" 
                 className="mr-5 
                 flex 
                 items-center
