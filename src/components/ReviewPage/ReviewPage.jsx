@@ -20,6 +20,8 @@ const ReviewPage = () => {
     const { id } = useParams();
     const userId = id || user._id;
 
+    console.log(reviews);
+
     const navigate = useNavigate();
 
     const _handleAddReview = async (reviewFormData) => {
@@ -90,7 +92,7 @@ const ReviewPage = () => {
                 return review;
             });
             setReviews(updatedReviews);
-            setEditingComment('');
+            setEditingComment(null);
         } catch (error) {
             console.error(error.message);
         }
@@ -122,10 +124,12 @@ const ReviewPage = () => {
             </div>
 
             <div className="book-image">
-                <img
-                    src={`http://books.google.com/books/content?id=${review.bookId}&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api`}
-                    alt="book image"
-                />
+                <a href={`https://books.google.com/books?id=${review.bookId}`} target="_blank" rel="noopener noreferrer">
+                    <img
+                        src={`http://books.google.com/books/content?id=${review.bookId}&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api`}
+                        alt="book image"
+                    />
+                </a>
             </div>
 
             <h2 className="review-book-title">{review.bookTitle}</h2>
@@ -143,15 +147,18 @@ const ReviewPage = () => {
                 })}
             </div>
 
-            <p>{review.text}</p>
+
             {!id && (
-                <div className="text-black">
-                    <button onClick={() => _handleEditClick(review._id)}>Edit</button>
-                    <button onClick={() => _handleDeleteReview(review._id)}>
-                        Delete
+                <div className="edit-delete-review text-black">
+                    <button onClick={() => _handleEditClick(review._id)} className="edit-review"><CiEdit /></button>
+                    <button onClick={() => _handleDeleteReview(review._id)} className="delete-review ml-1">
+                        <MdDeleteOutline />
                     </button>
                 </div>
             )}
+
+            <p className="mb-5">{review.text}</p>
+
             <section>
                 <CommentForm
                     handleAddComment={handleAddComment}
@@ -170,9 +177,9 @@ const ReviewPage = () => {
                                 month: 'long'
                             })}</p>
 
-                            {comment.author._id === user._id && (
+                            {(comment.author._id === user._id || comment.author === user._id) && (
                                 <div className="edit-delete-comment flex justify-end ">
-                                    <button onClick={() => setEditingComment(comment)} className="edit-comment"><CiEdit /></button>
+                                    <button onClick={() => setEditingComment({ ...comment, reviewId: review._id })} className="edit-comment"><CiEdit /></button>
                                     <button onClick={() => handleDeleteComment(review._id, comment._id)} className="delete-comment ml-2"><MdDeleteOutline /></button>
                                 </div>
                             )}

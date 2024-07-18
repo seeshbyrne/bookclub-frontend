@@ -35,7 +35,7 @@ const CommentForm = ({ handleAddComment, handleEditComment, initialCommentData, 
                 value={formData.text}
                 onChange={handleChange}
             />
-            <button type="submit" className="add-comment-button" >{commentId ? 'Update Comment' : 'Add comment'}</button>
+            <button type="submit" className="px-2 py-1 mb-2 ml-3" >{commentId ? 'Update Comment' : 'Add comment'}</button>
         </form>
     );
 };
