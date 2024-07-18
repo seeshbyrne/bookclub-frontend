@@ -27,6 +27,7 @@ const CommentForm = ({ handleAddComment, handleEditComment, initialCommentData, 
         <form onSubmit={handleSubmit}>
             <label htmlFor="text-input">Your comment:</label>
             <textarea
+                className="rounded-xl"
                 required
                 type="text"
                 name="text"
@@ -34,7 +35,7 @@ const CommentForm = ({ handleAddComment, handleEditComment, initialCommentData, 
                 value={formData.text}
                 onChange={handleChange}
             />
-            <button type="submit">{commentId ? 'Update Comment' : 'Submit Comment'}</button>
+            <button type="submit">{commentId ? 'Update Comment' : 'Submit'}</button>
         </form>
     );
 };

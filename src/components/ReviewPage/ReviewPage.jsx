@@ -122,11 +122,11 @@ const ReviewPage = () => {
             </div>
 
             <div className="book-image">
-            <img 
-                src={`http://books.google.com/books/content?id=${review.bookId}&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api`}
-                alt="book image" 
-            />
-        </div>
+                <img
+                    src={`http://books.google.com/books/content?id=${review.bookId}&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api`}
+                    alt="book image"
+                />
+            </div>
 
             <h2 className="review-book-title">{review.bookTitle}</h2>
             <p className="review-book-author py-3"> {review.bookAuthor}</p>
@@ -163,9 +163,12 @@ const ReviewPage = () => {
                 />
 
                 {review.comments.map((comment) => (
-                    <article key={comment._id}>
+                    <article key={comment._id} className="comment">
                         <header>
-                            <p>{comment.author.username} {new Date(comment.createdAt).toLocaleDateString()}</p>
+                            <p className="comment-date">{comment.author.username} {new Date(comment.createdAt).toLocaleDateString(undefined, {
+                                year: 'numeric',
+                                month: 'long'
+                            })}</p>
                             <div className="edit-delete-comment flex justify-end ">
                                 <button onClick={() => setEditingComment(comment)} className="edit-comment"><CiEdit /></button>
                                 <button onClick={() => handleDeleteComment(review._id, comment._id)} className="delete-comment ml-2"><MdDeleteOutline /></button>
