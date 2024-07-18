@@ -25,8 +25,14 @@ const Dashboard = ({ }) => {
 
   return (
     <main>
-      <h1 className="py-5 pt-10">Welcome, {user.username}</h1>
+      <h1 className="py-5 pt-10">Welcome{user ? ', ' + user.username : ' to BookClub'}</h1>
 
+      {!user && (
+        <>
+          <p className='text-center'>A platform to connect book lovers.</p>
+          <p className='text-center'>Sign in or create an account to view the full site.</p>
+        </>
+      )}
 
       <div className='trending'>
         <h2 className="text-6xl flex items-center mb-10">
@@ -92,21 +98,25 @@ const Dashboard = ({ }) => {
         <div className="bottom-part-two"></div>
       </div>
 
-      <h2 className="mb-5 custom-font text-center">Find your book</h2>
-      <div className="search">
-        <input
-          type="text"
-          placeholder="Enter Your Book Name"
-          value={search}
-          onChange={(event) => setSearch(event.target.value)}
-          onKeyPress={searchBook}
-        />
-        <button onClick={searchBook} className="custom-font">Search</button>
-      </div>
+      {user && (
+        <>
+          <h2 className="mb-5 custom-font text-center">Find your book</h2>
+          <div className="search">
+            <input
+              type="text"
+              placeholder="Enter Your Book Name"
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              onKeyPress={searchBook}
+            />
+            <button onClick={searchBook} className="custom-font">Search</button>
+          </div>
 
-      <div className="container flex flex-wrap justify-center">
-        {<BookCard book={{ items: bookData }} />}
-      </div>
+          <div className="container flex flex-wrap justify-center">
+            {<BookCard book={{ items: bookData }} />}
+          </div>
+        </>
+      )}
     </main>
   );
 };
