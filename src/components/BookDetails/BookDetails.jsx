@@ -34,21 +34,25 @@ const BookDetails = () => {
   return (
     <div className="details">
       {/* <button className="close" onClick={() => window.history.back()}>back<i className="fas fa-times"></i></button> */}
-      <img src={thumbnail} alt="book image" className="book-detail-img mt-2"/>
-      <div className="book-info">
-        <h1 className="text-center mb-7">{book.volumeInfo.title}</h1>
-        <h3 className="text-center">{book.volumeInfo.authors.join(', ')}</h3>
-        <h4 className="text-center">{book.volumeInfo.publisher}<span>{book.volumeInfo.publishedDate}</span></h4><br />
+      <div className='book-header flex flex-row gap-10 '>
+        <img src={thumbnail} alt="book image" className="book-detail-img mt-2"/>
+        <div className='flex flex-col items-center justify-center '>
+          <h1 className="text-center mb-7">{book.volumeInfo.title}</h1>
+          <h3 className="text-center">{book.volumeInfo.authors.join(', ')}</h3>
+          <h4 className="text-center">{book.volumeInfo.publisher}<span>{book.volumeInfo.publishedDate}</span></h4><br />
+          <a href={book.volumeInfo.previewLink} target="_blank" rel="noopener noreferrer" className="more-button hover:underline ">
+            More Info
+          </a>
+        </div>
+      </div>
+      <div className="book-info px-10 pb-10 flex flex-col items-center">
         <h4 className="description text-justify">{book.volumeInfo.description}</h4>
-        <a href={book.volumeInfo.previewLink} target="_blank" rel="noopener noreferrer" className="more-button">
-          <button className="more-button">More</button>
-        </a>
+      </div>
         <ReviewForm
           setIsModalOpen={setIsModalOpen}
           handleAddReview={_handleAddReview}
-          initialState={initialState} 
+          initialState={initialState}
         />
-      </div>
     </div>
   );
 };

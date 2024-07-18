@@ -5,3 +5,7 @@ input[type=radio] {
 .star {
     cursor: pointer
 }
+
+.modal-trigger-button {
+    background-color: #F1E6CB;
+}

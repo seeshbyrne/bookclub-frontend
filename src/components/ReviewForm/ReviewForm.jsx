@@ -56,7 +56,7 @@ const ReviewForm = (props) => {
             {props.selectedReviewId ? null : (
                 <button
                 onClick={() => setIsOpen(true)}
-                className="bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none"
+                className="modal-trigger-button text-black font-semibold py-2 px-4 mb-10 rounded-md shadow-sm focus:outline-none w-[175px]"
                 >
                     Create a Review
                 </button>   
