@@ -1,7 +1,6 @@
 import { useState, createContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
-import Landing from './components/Landing/Landing';
 import Dashboard from './components/Dashboard/Dashboard';
 import BookDetails from './components/BookDetails/BookDetails';
 import SignupForm from './components/SignupForm/SignupForm';
