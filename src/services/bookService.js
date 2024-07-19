@@ -77,7 +77,6 @@ const deleteReview = async (id) => {
     }
 };
 
-/// CHECK IF WE NEED THIS????
 const createReview = async (bookId, review) => {
     try {
         const response = await fetch(`${BASE_URL}/${ bookId }/reviews`, {
